@@ -16,6 +16,7 @@
     "@nuxtjs/i18n": "^8.3.1",
     "@primevue/themes": "^4.0.0",
     "nuxt": "^3.12.3",
+    "nuxt-typed-router": "^3.6.5",
     "primevue": "^4.0.0",
     "tailwindcss-primeui": "^0.3.2",
     "vue": "latest"
