@@ -4,13 +4,25 @@ import Aura from '@primevue/themes/aura';
 export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
-  modules: ['@primevue/nuxt-module'],
+  modules: ['@nuxtjs/i18n', '@primevue/nuxt-module'],
   css: ['~/assets/css/main.css'],
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
+  },
+  i18n: {
+    lazy: true,
+    langDir: 'locales',
+    defaultLocale: 'es',
+    locales: [
+      {
+        code: 'es',
+        iso: 'es-GT',
+        file: 'es.json',
+      },
+    ],
   },
   primevue: {
     autoImport: true,
