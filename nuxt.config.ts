@@ -1,10 +1,10 @@
-import Aura from '@primevue/themes/aura';
+import Aura from '@primevue/themes/aura'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
-  modules: ['@primevue/nuxt-module'],
+  modules: ['@primevue/nuxt-module', '@nuxtjs/eslint-module'],
   css: ['~/assets/css/main.css'],
   postcss: {
     plugins: {
@@ -20,10 +20,10 @@ export default defineNuxtConfig({
         options: {
           cssLayer: {
             name: 'primevue',
-            order: 'tailwind-base, primevue, tailwind-utilities'
-          }
+            order: 'tailwind-base, primevue, tailwind-utilities',
+          },
         },
-      }
+      },
     },
     components: {
       prefix: 'P',
@@ -33,5 +33,5 @@ export default defineNuxtConfig({
       prefix: 'p',
       include: '*',
     },
-  }
+  },
 })
