@@ -1,10 +1,10 @@
-import Aura from '@primevue/themes/aura'
+import Aura from '@primevue/themes/aura';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
-  modules: ['@primevue/nuxt-module', '@nuxtjs/eslint-module'],
+  modules: ['@primevue/nuxt-module'],
   css: ['~/assets/css/main.css'],
   postcss: {
     plugins: {
@@ -34,4 +34,4 @@ export default defineNuxtConfig({
       include: '*',
     },
   },
-})
+});
