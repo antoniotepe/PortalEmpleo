@@ -16,7 +16,7 @@ const items = ref([
 <template>
   <div class="mb-2 border-b-2">
     <div class="container mx-auto">
-      <p-toolbar class="border-0 px-0">
+      <p-toolbar class="border-0 bg-none px-0">
         <template #start>
           <p-button
             icon="pi pi-plus"
