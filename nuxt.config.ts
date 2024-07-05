@@ -1,15 +1,10 @@
-import Aura from '@primevue/themes/aura';
+import Aura from '@primevue/themes/aura'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
-  modules: [
-    '@nuxtjs/i18n',
-    '@primevue/nuxt-module',
-    "@nuxt/eslint",
-    'nuxt-typed-router',
-  ],
+  modules: ['@nuxtjs/i18n', '@primevue/nuxt-module', '@nuxt/eslint', 'nuxt-typed-router'],
   css: ['~/assets/css/main.css'],
   postcss: {
     plugins: {
@@ -30,7 +25,6 @@ export default defineNuxtConfig({
     ],
   },
   primevue: {
-    autoImport: true,
     options: {
       theme: {
         preset: Aura,
@@ -46,9 +40,5 @@ export default defineNuxtConfig({
       prefix: 'P',
       include: '*',
     },
-    directives: {
-      prefix: 'p',
-      include: '*',
-    },
   },
-});
+})
