@@ -4,7 +4,13 @@ import Aura from '@primevue/themes/aura'
 export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
-  modules: ['@nuxtjs/i18n', '@primevue/nuxt-module', '@nuxt/eslint', 'nuxt-typed-router'],
+  modules: [
+    '@nuxtjs/i18n',
+    '@primevue/nuxt-module',
+    '@nuxt/eslint',
+    'nuxt-typed-router',
+    '@pinia/nuxt',
+  ],
   css: ['~/assets/css/main.css'],
   postcss: {
     plugins: {
