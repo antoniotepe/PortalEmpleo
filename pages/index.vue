@@ -1,5 +1,5 @@
 <template>
   <div class="container mx-auto">
-    {{ $t('app') }}
+    <span>{{ $t('app') }}</span>
   </div>
 </template>

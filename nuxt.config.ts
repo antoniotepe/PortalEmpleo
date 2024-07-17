@@ -18,23 +18,12 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  i18n: {
-    lazy: true,
-    langDir: 'locales',
-    defaultLocale: 'es',
-    locales: [
-      {
-        code: 'es',
-        iso: 'es-GT',
-        file: 'es.json',
-      },
-    ],
-  },
   primevue: {
     options: {
       theme: {
         preset: Aura,
         options: {
+          darkModeSelector: 'light',
           cssLayer: {
             name: 'primevue',
             order: 'tailwind-base, primevue, tailwind-utilities',
@@ -46,5 +35,17 @@ export default defineNuxtConfig({
       prefix: 'P',
       include: '*',
     },
+  },
+  i18n: {
+    lazy: true,
+    langDir: 'locales',
+    defaultLocale: 'es',
+    locales: [
+      {
+        code: 'es',
+        iso: 'es-GT',
+        files: [{ path: 'es/index.json' }],
+      },
+    ],
   },
 })
