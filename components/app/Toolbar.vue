@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+const drawer = useDrawerStore()
+</script>
+
 <template>
   <p-toolbar>
     <template #start>
@@ -7,6 +11,7 @@
         severity="secondary"
         text
         rounded
+        @click="drawer.toggle()"
       />
     </template>
 
