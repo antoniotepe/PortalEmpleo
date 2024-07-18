@@ -1,7 +1,7 @@
 <template>
-  <div>Imagen</div>
+  <AppToolbar />
 
-  <div class="container mx-auto">
+  <div class="container mx-auto mt-2">
     <slot />
   </div>
 </template>

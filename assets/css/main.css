@@ -1,4 +1,5 @@
 @import url('primeicons/primeicons.css');
+@import url('~/assets/css/components/toolbar.css');
 
 @layer tailwind-base, primevue, tailwind-utilities;
 
@@ -9,4 +10,10 @@
 @layer tailwind-utilities {
   @tailwind components;
   @tailwind utilities;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 font-sans antialiased;
+  }
 }
