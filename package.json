@@ -16,12 +16,12 @@
     "@nuxtjs/i18n": "^8.3.1",
     "@pinia/nuxt": "^0.5.1",
     "@primevue/themes": "^4.0.0",
-    "nuxt": "^3.12.3",
+    "nuxt": "^3.12.4",
     "nuxt-typed-router": "^3.6.5",
     "primeicons": "^7.0.0",
     "primevue": "^4.0.0",
     "tailwindcss-primeui": "^0.3.4",
-    "vue": "^3.4.32"
+    "vue": "^3.4.33"
   },
   "devDependencies": {
     "@primevue/nuxt-module": "^4.0.0",
