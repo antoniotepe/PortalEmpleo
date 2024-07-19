@@ -6,11 +6,13 @@ const companies = ref([
     id: 1,
     name: 'Empresa 1',
     code: 'EMP1',
+    email: 'aerodriguez@mintrabajo.gob.gt',
   },
   {
     id: 2,
     name: 'Empresa 2',
     code: 'EMP2',
+    email: 'aerodriguez@mintrabajo.gob.gt',
   },
 ])
 
@@ -53,6 +55,11 @@ const selected = ref(companies.value[0])
       <p-column
         field="code"
         header="Código"
+      />
+
+      <p-column
+        field="email"
+        header="Correo"
       />
 
       <p-column header="Acciones">
