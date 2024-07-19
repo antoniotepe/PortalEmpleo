@@ -18,6 +18,7 @@
     "@primevue/themes": "^4.0.0",
     "nuxt": "^3.12.4",
     "nuxt-typed-router": "^3.6.5",
+    "pinia": "^2.1.7",
     "primeicons": "^7.0.0",
     "primevue": "^4.0.0",
     "tailwindcss-primeui": "^0.3.4",
