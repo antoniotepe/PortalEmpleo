@@ -33,9 +33,23 @@ const selected = ref(companies.value[0])
   <p-dialog
     v-model:visible="visible"
     modal
-    header="Empresas"
+    :closable="false"
+    dismissable-mask
     :style="{ width: '45rem' }"
   >
+    <template #header>
+      <div class="flex flex-1 items-center justify-between">
+        <h2 class="text-lg font-semibold">Empresas</h2>
+
+        <NuxtLink
+          to="/companies/new"
+          class="p-button p-button-rounded p-button-text"
+        >
+          Añadir
+        </NuxtLink>
+      </div>
+    </template>
+
     <p-dataTable
       v-model:selection="selected"
       :value="companies"
@@ -80,6 +94,7 @@ const selected = ref(companies.value[0])
         type="button"
         label="Cancelar"
         severity="secondary"
+        rounded
         text
         @click="visible = false"
       />
