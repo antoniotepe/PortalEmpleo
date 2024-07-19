@@ -1,0 +1,5 @@
+@layer components {
+  .p-toolbar {
+    @apply rounded-none border-none;
+  }
+}
