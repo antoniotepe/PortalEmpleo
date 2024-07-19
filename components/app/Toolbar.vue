@@ -18,10 +18,12 @@ const drawer = useDrawerStore()
     </template>
 
     <template #end>
-      <p-avatar
-        image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png"
-        style="width: 32px; height: 32px"
-      />
+      <NuxtLink to="/profile">
+        <p-avatar
+          image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png"
+          style="width: 32px; height: 32px"
+        />
+      </NuxtLink>
     </template>
   </p-toolbar>
 </template>
