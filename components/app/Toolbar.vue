@@ -13,6 +13,8 @@ const drawer = useDrawerStore()
         rounded
         @click="drawer.toggle()"
       />
+
+      <CompanySelect />
     </template>
 
     <template #end>
