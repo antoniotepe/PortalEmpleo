@@ -1,11 +1,26 @@
 <script lang="ts" setup>
 const visible = ref(false)
+
+const companies = ref([
+  {
+    id: 1,
+    name: 'Empresa 1',
+    code: 'EMP1',
+  },
+  {
+    id: 2,
+    name: 'Empresa 2',
+    code: 'EMP2',
+  },
+])
+
+const selected = ref(companies.value[0])
 </script>
 
 <template>
   <p-icon-field @click="visible = true">
     <p-input-text
-      value="Empresa 1"
+      :value="selected.name"
       variant="filled"
       readonly
     />
@@ -17,9 +32,43 @@ const visible = ref(false)
     v-model:visible="visible"
     modal
     header="Empresas"
-    :style="{ width: '35rem' }"
+    :style="{ width: '45rem' }"
   >
-    <div class="flex justify-end gap-2">
+    <p-dataTable
+      v-model:selection="selected"
+      :value="companies"
+      striped-rows
+      data-key="id"
+    >
+      <p-column
+        selection-mode="single"
+        header-style="width: 3rem"
+      />
+
+      <p-column
+        field="name"
+        header="Nombre"
+      />
+
+      <p-column
+        field="code"
+        header="Código"
+      />
+
+      <p-column header="Acciones">
+        <template #body>
+          <p-button
+            type="button"
+            icon="pi pi-eye"
+            severity="secondary"
+            text
+            rounded
+          />
+        </template>
+      </p-column>
+    </p-dataTable>
+
+    <div class="mt-4 flex justify-end gap-2">
       <p-button
         type="button"
         label="Cancelar"
