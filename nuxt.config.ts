@@ -46,6 +46,7 @@ export default defineNuxtConfig({
         iso: 'es-GT',
         files: [
           { path: 'es/index.json' },
+          { path: 'es/ui.json' },
           { path: 'es/login.json' },
           { path: 'es/register.json' },
           { path: 'es/companies.json' },

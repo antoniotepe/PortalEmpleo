@@ -1,7 +1,70 @@
 {
   "companies": {
     "new": {
-      "title": "Formulario de registro de empresa"
+      "title": "Formulario de registro de empresa",
+      "sections": {
+        "general": "Información de la empresa"
+      },
+      "inputs": {
+        "foreign": {
+          "label": "¿Es una empresa extranjera?"
+        },
+        "nit": {
+          "label": "NIT",
+          "placeholder": "NIT de la empresa",
+          "help": "El NIT es un número único de identificación tributaria que se le asigna a cada empresa."
+        },
+        "name": {
+          "label": "Razón social",
+          "placeholder": "Nombre de la empresa",
+          "help": "El nombre de la empresa debe ser único y no puede ser cambiado."
+        },
+        "comercialName": {
+          "label": "Nombre comercial",
+          "placeholder": "Nombre comercial de la empresa",
+          "help": "El nombre comercial es el nombre con el que la empresa se da a conocer al público."
+        },
+        "companyType": {
+          "label": "Tipo de empresa",
+          "placeholder": "Seleccione el tipo de empresa",
+          "help": "Seleccione el tipo de empresa que mejor se ajuste a la actividad económica de la empresa."
+        },
+        "entityType": {
+          "label": "Tipo de entidad",
+          "placeholder": "Seleccione el tipo de entidad",
+          "help": "Seleccione el tipo de entidad que mejor se ajuste a la estructura legal de la empresa."
+        },
+        "industry": {
+          "label": "Industria",
+          "placeholder": "Seleccione la industria",
+          "help": "Seleccione la industria a la que pertenece la empresa."
+        },
+        "activity": {
+          "label": "Actividad económica",
+          "placeholder": "Seleccione la actividad económica",
+          "help": "Seleccione la actividad económica principal de la empresa."
+        },
+        "juridical": {
+          "label": "¿Es una empresa jurídica?"
+        },
+        "guild": {
+          "label": "Gremio",
+          "placeholder": "Seleccione el gremio",
+          "help": "Seleccione el gremio al que pertenece la empresa."
+        },
+        "operationYear": {
+          "label": "Año de operación",
+          "placeholder": "Seleccione el año de operación",
+          "help": "Seleccione el año en el que la empresa inició operaciones."
+        },
+        "igss": {
+          "label": "¿Está inscrita en el IGSS?",
+          "number": "Número de afiliación"
+        },
+        "irtra": {
+          "label": "¿Está inscrita en el IRTRA?"
+        }
+      }
     }
   }
 }

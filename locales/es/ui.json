@@ -1,0 +1,18 @@
+{
+  "ui": {
+    "inputs": {
+      "binary": {
+        "yes": "Sí",
+        "no": "No"
+      }
+    },
+    "buttons": {
+      "cancel": {
+        "label": "Cancelar"
+      },
+      "save": {
+        "label": "Guardar"
+      }
+    }
+  }
+}

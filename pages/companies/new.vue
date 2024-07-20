@@ -1,5 +1,18 @@
 <script lang="ts" setup>
-const form = ref({ foreign: false })
+const form = ref({
+  foreign: false,
+  nit: '',
+  name: '',
+  comercialName: '',
+  companyType: '',
+  entityType: '',
+  industry: '',
+  activity: '',
+  juridical: false,
+  guild: '',
+  operationYear: '',
+  igss: '',
+})
 </script>
 
 <template>
@@ -13,425 +26,48 @@ const form = ref({ foreign: false })
     </p-card>
 
     <p-card>
-      <template #title>Información de Empresa</template>
-
-      <template #content>
-        <div>
-          <label class="mb-2 block">¿Es extranjera?</label>
-
-          <div class="flex flex-col gap-1">
-            <div class="flex items-center gap-2">
-              <p-radio-button
-                v-model="form.foreign"
-                input-id="foreign-true"
-                :value="true"
-              />
-
-              <label for="foreign-true"> Sí </label>
-            </div>
-
-            <div class="flex items-center gap-2">
-              <p-radio-button
-                v-model="form.foreign"
-                input-id="foreign-false"
-                :value="false"
-              />
-
-              <label for="foreign-false"> No </label>
-            </div>
-          </div>
-        </div>
+      <template #title>
+        {{ $t('companies.new.sections.general') }}
       </template>
-    </p-card>
-
-    <p-card>
-      <template #title>Información de Patentes</template>
 
       <template #content>
-        <div class="flex flex-col gap-4">
-          <div class="grid grid-cols-3 gap-4">
-            <div class="flex flex-col gap-2">
-              <label for="cui"> Código Único de Identificación </label>
+        <div class="grid grid-cols-2 gap-4">
+          <UiInputBinary
+            id="foreign"
+            v-model="form.foreign"
+            :label="$t('companies.new.inputs.foreign.label')"
+          />
 
-              <p-input-text
-                id="cui"
-                value="Ana"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-          </div>
+          <div></div>
 
-          <div class="grid grid-cols-3 gap-4">
-            <div class="flex flex-col gap-2">
-              <label for="firstName"> Primer Nombre </label>
+          <UiInputText
+            v-if="!form.foreign"
+            id="nit"
+            v-model="form.nit"
+            :label="$t('companies.new.inputs.nit.label')"
+            :placeholder="$t('companies.new.inputs.nit.placeholder')"
+            :help="$t('companies.new.inputs.nit.help')"
+          />
 
-              <p-input-text
-                id="firstName"
-                value="Ana"
-                filled
-                fluid
-                disabled
-              />
-            </div>
+          <div></div>
 
-            <div class="flex flex-col gap-2">
-              <label for="secondName"> Segundo Nombre </label>
+          <UiInputText
+            v-if="!form.name"
+            id="company-name"
+            v-model="form.nit"
+            :label="$t('companies.new.inputs.name.label')"
+            :placeholder="$t('companies.new.inputs.name.placeholder')"
+            :help="$t('companies.new.inputs.name.help')"
+          />
 
-              <p-input-text
-                id="secondName"
-                value="Cristina"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="thirdName"> Tercer Nombre </label>
-
-              <p-input-text
-                id="thirdName"
-                value="Eloisa"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-          </div>
-
-          <div class="grid grid-cols-3 gap-4">
-            <div class="flex flex-col gap-2">
-              <label for="firstSurname"> Primer Apellido </label>
-
-              <p-input-text
-                id="firstSurname"
-                value="Aguirre"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="secondSurname"> Segundo Apellido </label>
-
-              <p-input-text
-                id="secondSurname"
-                value="de León"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="marriedSurname"> Apellido de Casada </label>
-
-              <p-input-text
-                id="marriedSurname"
-                value="García"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-          </div>
-        </div>
-      </template>
-    </p-card>
-
-    <p-card>
-      <template #title>Información de Ubicación</template>
-
-      <template #content>
-        <div class="flex flex-col gap-4">
-          <div class="grid grid-cols-3 gap-4">
-            <div class="flex flex-col gap-2">
-              <label for="cui"> Código Único de Identificación </label>
-
-              <p-input-text
-                id="cui"
-                value="Ana"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-          </div>
-
-          <div class="grid grid-cols-3 gap-4">
-            <div class="flex flex-col gap-2">
-              <label for="firstName"> Primer Nombre </label>
-
-              <p-input-text
-                id="firstName"
-                value="Ana"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="secondName"> Segundo Nombre </label>
-
-              <p-input-text
-                id="secondName"
-                value="Cristina"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="thirdName"> Tercer Nombre </label>
-
-              <p-input-text
-                id="thirdName"
-                value="Eloisa"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-          </div>
-
-          <div class="grid grid-cols-3 gap-4">
-            <div class="flex flex-col gap-2">
-              <label for="firstSurname"> Primer Apellido </label>
-
-              <p-input-text
-                id="firstSurname"
-                value="Aguirre"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="secondSurname"> Segundo Apellido </label>
-
-              <p-input-text
-                id="secondSurname"
-                value="de León"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="marriedSurname"> Apellido de Casada </label>
-
-              <p-input-text
-                id="marriedSurname"
-                value="García"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-          </div>
-        </div>
-      </template>
-    </p-card>
-
-    <p-card>
-      <template #title>Datos de Contacto</template>
-
-      <template #content>
-        <div class="flex flex-col gap-4">
-          <div class="grid grid-cols-3 gap-4">
-            <div class="flex flex-col gap-2">
-              <label for="cui"> Código Único de Identificación </label>
-
-              <p-input-text
-                id="cui"
-                value="Ana"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-          </div>
-
-          <div class="grid grid-cols-3 gap-4">
-            <div class="flex flex-col gap-2">
-              <label for="firstName"> Primer Nombre </label>
-
-              <p-input-text
-                id="firstName"
-                value="Ana"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="secondName"> Segundo Nombre </label>
-
-              <p-input-text
-                id="secondName"
-                value="Cristina"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="thirdName"> Tercer Nombre </label>
-
-              <p-input-text
-                id="thirdName"
-                value="Eloisa"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-          </div>
-
-          <div class="grid grid-cols-3 gap-4">
-            <div class="flex flex-col gap-2">
-              <label for="firstSurname"> Primer Apellido </label>
-
-              <p-input-text
-                id="firstSurname"
-                value="Aguirre"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="secondSurname"> Segundo Apellido </label>
-
-              <p-input-text
-                id="secondSurname"
-                value="de León"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="marriedSurname"> Apellido de Casada </label>
-
-              <p-input-text
-                id="marriedSurname"
-                value="García"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-          </div>
-        </div>
-      </template>
-    </p-card>
-
-    <p-card>
-      <template #title>Representación Legal</template>
-
-      <template #content>
-        <div class="flex flex-col gap-4">
-          <div class="grid grid-cols-3 gap-4">
-            <div class="flex flex-col gap-2">
-              <label for="cui"> Código Único de Identificación </label>
-
-              <p-input-text
-                id="cui"
-                value="Ana"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-          </div>
-
-          <div class="grid grid-cols-3 gap-4">
-            <div class="flex flex-col gap-2">
-              <label for="firstName"> Primer Nombre </label>
-
-              <p-input-text
-                id="firstName"
-                value="Ana"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="secondName"> Segundo Nombre </label>
-
-              <p-input-text
-                id="secondName"
-                value="Cristina"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="thirdName"> Tercer Nombre </label>
-
-              <p-input-text
-                id="thirdName"
-                value="Eloisa"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-          </div>
-
-          <div class="grid grid-cols-3 gap-4">
-            <div class="flex flex-col gap-2">
-              <label for="firstSurname"> Primer Apellido </label>
-
-              <p-input-text
-                id="firstSurname"
-                value="Aguirre"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="secondSurname"> Segundo Apellido </label>
-
-              <p-input-text
-                id="secondSurname"
-                value="de León"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="marriedSurname"> Apellido de Casada </label>
-
-              <p-input-text
-                id="marriedSurname"
-                value="García"
-                filled
-                fluid
-                disabled
-              />
-            </div>
-          </div>
+          <UiInputText
+            v-if="!form.comercialName"
+            id="comercial-name"
+            v-model="form.comercialName"
+            :label="$t('companies.new.inputs.comercialName.label')"
+            :placeholder="$t('companies.new.inputs.comercialName.placeholder')"
+            :help="$t('companies.new.inputs.comercialName.help')"
+          />
         </div>
       </template>
     </p-card>
@@ -440,14 +76,14 @@ const form = ref({ foreign: false })
       <template #content>
         <div class="flex items-center justify-end gap-2 font-normal">
           <p-button
-            label="Cancelar"
+            :label="$t('ui.buttons.cancel.label')"
             severity="secondary"
             text
             rounded
           />
 
           <p-button
-            label="Crear"
+            :label="$t('ui.buttons.save.label')"
             rounded
           />
         </div>
