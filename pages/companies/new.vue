@@ -68,6 +68,92 @@ const form = ref({
             :placeholder="$t('companies.new.inputs.comercialName.placeholder')"
             :help="$t('companies.new.inputs.comercialName.help')"
           />
+
+          <UiInputSelect
+            id="company-type"
+            v-model="form.companyType"
+            :label="$t('companies.new.inputs.companyType.label')"
+            :items="[
+              { label: 'S.A.', value: 'sa' },
+              { label: 'S.A.S.', value: 'sas' },
+              { label: 'S.C.', value: 'sc' },
+              { label: 'S.C.A.', value: 'sca' },
+              { label: 'S.C.S.', value: 'scs' },
+              { label: 'S.C.P.', value: 'scp' },
+              { label: 'S.C.E.', value: 'sce' },
+              { label: 'S.C.A.', value: 'sca' },
+              { label: 'S.C.S.', value: 'scs' },
+              { label: 'S.C.P.', value: 'scp' },
+              { label: 'S.C.E.', value: 'sce' },
+            ]"
+            :placeholder="$t('companies.new.inputs.companyType.placeholder')"
+            :help="$t('companies.new.inputs.companyType.help')"
+          />
+
+          <UiInputSelect
+            id="company-type"
+            v-model="form.entityType"
+            :label="$t('companies.new.inputs.entityType.label')"
+            :items="[
+              { label: 'Persona Individual', value: 'individual' },
+              { label: 'Persona Jurídica', value: 'juridical' },
+            ]"
+            :placeholder="$t('companies.new.inputs.entityType.placeholder')"
+            :help="$t('companies.new.inputs.entityType.help')"
+          />
+
+          <UiInputSelect
+            id="industry"
+            v-model="form.industry"
+            :label="$t('companies.new.inputs.industry.label')"
+            :items="[
+              { label: 'Industria 1', value: 'i1' },
+              { label: 'Industria 2', value: 'i2' },
+              { label: 'Industria 3', value: 'i3' },
+              { label: 'Industria 4', value: 'i4' },
+              { label: 'Industria 5', value: 'i5' },
+            ]"
+            :placeholder="$t('companies.new.inputs.entityType.placeholder')"
+            :help="$t('companies.new.inputs.entityType.help')"
+          />
+
+          <UiInputSelect
+            id="industry"
+            v-model="form.activity"
+            :label="$t('companies.new.inputs.activity.label')"
+            :items="[
+              { label: 'Industria 1', value: 'i1' },
+              { label: 'Industria 2', value: 'i2' },
+              { label: 'Industria 3', value: 'i3' },
+              { label: 'Industria 4', value: 'i4' },
+              { label: 'Industria 5', value: 'i5' },
+            ]"
+            :placeholder="$t('companies.new.inputs.activity.placeholder')"
+            :help="$t('companies.new.inputs.activity.help')"
+          />
+
+          <UiInputSelect
+            id="guild"
+            v-model="form.guild"
+            :label="$t('companies.new.inputs.guild.label')"
+            :items="[
+              { label: 'Gremio 1', value: 'g1' },
+              { label: 'Gremio 2', value: 'g2' },
+              { label: 'Gremio 3', value: 'g3' },
+              { label: 'Gremio 4', value: 'g4' },
+              { label: 'Gremio 5', value: 'g5' },
+            ]"
+            :placeholder="$t('companies.new.inputs.guild.placeholder')"
+            :help="$t('companies.new.inputs.guild.help')"
+          />
+
+          <UiInputDate
+            id="operation-year"
+            v-model="form.operationYear"
+            :label="$t('companies.new.inputs.operationYear.label')"
+            :placeholder="$t('companies.new.inputs.operationYear.placeholder')"
+            :help="$t('companies.new.inputs.operationYear.help')"
+          />
         </div>
       </template>
     </p-card>
