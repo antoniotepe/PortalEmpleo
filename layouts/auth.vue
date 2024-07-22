@@ -1,8 +1,9 @@
 <template>
   <div class="mx-auto flex w-full flex-col">
     <div class="flex h-screen min-h-screen flex-1 flex-col md:flex-row">
-      <div class="min-h-screen w-1/2 flex-1 bg-white">
-        <div class="my-10 flex justify-center">
+      <!-- Columna izquierda -->
+      <div class="min-h-screen w-full flex-1 bg-white md:w-1/2">
+        <div class="sticky top-0 my-10 flex justify-center bg-white">
           <div class="w-3/4">
             <img
               src="~/assets/webp/logo-h.webp"
@@ -11,13 +12,14 @@
           </div>
         </div>
 
-        <div class="mt-10">
+        <div>
           <slot />
         </div>
       </div>
 
-      <div class="flex h-screen min-h-screen w-1/2 flex-1 flex-col bg-slate-100">
-        <div class="m-10 my-20 flex gap-5">
+      <!-- Columna derecha -->
+      <div class="flex min-h-screen flex-1 flex-col bg-slate-100 md:w-1/2">
+        <div class="sticky top-10 m-10 my-20 flex gap-5">
           <NuxtLink
             to="/"
             class="border-b-2 border-[#0C31F1] font-bold"
@@ -28,8 +30,11 @@
           <NuxtLink to="/"> Personas </NuxtLink>
         </div>
 
-        <div class="flex flex-1">
-          <img src="~/assets/svg/message.svg" />
+        <div class="flex flex-1 justify-center">
+          <img
+            src="~/assets/svg/message.svg"
+            class="w-3/4 md:w-full"
+          />
         </div>
 
         <div class="flex h-[25vh] flex-col items-center justify-center bg-[#142958]">

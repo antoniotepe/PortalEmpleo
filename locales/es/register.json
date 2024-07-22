@@ -16,6 +16,9 @@
     "phEmail": "Ingrese su correo",
     "msgErrorCui": "Su Código Único de Identificación no está en un formato válido. Por favor, intente de nuevo.",
     "msgErrorPassword": "Las contraseñas no coinciden. Por favor, intente de nuevo.",
-    "msgErrorEmail": "El correo electrónico no está en un formato válido. Por favor, intente de nuevo"
+    "msgErrorEmail": "El correo electrónico no está en un formato válido. Por favor, intente de nuevo",
+    "weakLabel": "Demasiado simple",
+    "mediumLabel": "Complejidad media",
+    "strongLabel": "Contraseña compleja"
   }
 }
