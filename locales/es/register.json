@@ -1,0 +1,24 @@
+{
+  "register": {
+    "title": "Regístrate en el Portal del Empleador",
+    "subtitle": "Para ingresar, llena los campos.",
+    "name": "Nombre",
+    "lastName": "Apellido",
+    "emailText": "Correo Electrónico",
+    "cui": "Código Único de Identificación (CUI)",
+    "password": "Contraseña",
+    "confirmPassword": "Confirma su contraseña",
+    "register": "Registrarse",
+    "phName": "Ingrese su Nombre",
+    "phLastName": "Ingrese su Apellido",
+    "phCui": "Ingrese su Código Único de Identificación (CUI) ",
+    "phPassword": "Ingrese su contraseña",
+    "phEmail": "Ingrese su correo",
+    "msgErrorCui": "Su Código Único de Identificación no está en un formato válido. Por favor, intente de nuevo.",
+    "msgErrorPassword": "Las contraseñas no coinciden. Por favor, intente de nuevo.",
+    "msgErrorEmail": "El correo electrónico no está en un formato válido. Por favor, intente de nuevo",
+    "weakLabel": "Demasiado simple",
+    "mediumLabel": "Complejidad media",
+    "strongLabel": "Contraseña compleja"
+  }
+}

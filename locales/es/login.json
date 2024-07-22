@@ -1,5 +1,18 @@
 {
   "login": {
-    "title": "Iniciar sesión"
+    "title": "Iniciar sesión",
+    "welcome": "¡Bienvenido al Portal del Empleador!",
+    "loginText": "Para acceder, inicia sesión.",
+    "emailText": "Correo Electrónico",
+    "passwordText": "Contraseña",
+    "rememberMe": "Recuérdame",
+    "forgotPassword": "¿Olvidó su contraseña?",
+    "menuPerson": "Persona",
+    "menuCompany": "Empresa",
+    "social": "Redes Sociales",
+    "btnAccess": "Ingresar",
+    "btnRegister": "Registrar",
+    "phEmail": "Ingrese su correo",
+    "phPassword": "Ingrese su contraseña"
   }
 }
