@@ -58,7 +58,7 @@ const register = () => {
 
 <template>
   <div class="flex w-full flex-col items-center justify-start">
-    <div class="w-full max-w-xl rounded-xl bg-white md:text-2xl">
+    <div class="w-full max-w-xl rounded-xl bg-white p-5 md:text-2xl">
       <h1 class="mb-5 text-left text-3xl font-bold text-[#142958]">
         {{ $t('register.title') }}
       </h1>
