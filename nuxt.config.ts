@@ -18,6 +18,9 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  runtimeConfig: {
+    apiUrl: process.env.API_URL,
+  },
   primevue: {
     options: {
       theme: {
