@@ -44,6 +44,7 @@ const selected = ref(companies.value[0])
         <NuxtLink
           to="/companies/new"
           class="p-button p-button-rounded p-button-text"
+          @click="visible = false"
         >
           Añadir
         </NuxtLink>

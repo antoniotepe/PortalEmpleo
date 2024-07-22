@@ -2,7 +2,7 @@
   <AppDrawer />
   <AppToolbar />
 
-  <div class="container mx-auto mt-5">
+  <div class="container mx-auto mb-10 mt-5">
     <slot />
   </div>
 </template>
