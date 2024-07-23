@@ -7,7 +7,6 @@ interface FormData {
   firstName: string
   lastName: string
   username: string
-  cui: string
   password: string
   confirmPassword: string
 }
@@ -16,7 +15,6 @@ const form = reactive<FormData>({
   firstName: '',
   lastName: '',
   username: '',
-  cui: '',
   password: '',
   confirmPassword: '',
 })
@@ -174,19 +172,13 @@ const register = () => {
               v-if="errorEmail"
               class="text-lg text-red-600"
             >
-              {{ $t('register.msgErrorCui') }}
+              {{ $t('register.msgErrorEmail') }}
             </h3>
             <h3
               v-if="errorPassword"
               class="text-lg text-red-600"
             >
               {{ $t('register.msgErrorPassword') }}
-            </h3>
-            <h3
-              v-if="errorCui"
-              class="text-lg text-red-600"
-            >
-              {{ $t('register.msgErrorCui') }}
             </h3>
           </div>
         </div>
