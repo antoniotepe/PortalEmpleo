@@ -26,10 +26,6 @@ const register = () => {
 
   const validationRules = [
     {
-      condition: () => form.cui.length !== 13,
-      errorRef: errorCui,
-    },
-    {
       condition: () => form.password !== form.confirmPassword,
       errorRef: errorPassword,
     },
@@ -51,7 +47,10 @@ const register = () => {
   })
 
   if (allValid) {
-    console.log('Registro exitoso!')
+    console.log('nombre', form.firstName, form.lastName)
+    console.log('email', form.username)
+    console.log('pass1', form.password)
+    console.log('pass2', form.confirmPassword)
   }
 }
 </script>
@@ -115,24 +114,7 @@ const register = () => {
             required
           />
         </div>
-        <div class="mb-5">
-          <label
-            for="cui"
-            class="block text-sm font-medium text-black"
-            >{{ $t('register.cui') }}</label
-          >
-          <p-input-text
-            v-model="form.cui"
-            :use-grouping="false"
-            :placeholder="$t('register.phCui')"
-            :maxlength="13"
-            :pattern="7"
-            type="number"
-            :invalid="errorCui"
-            class="p-input-text w-full"
-            required
-          />
-        </div>
+
         <div class="flex space-x-5">
           <div class="w-1/2">
             <label

@@ -19,5 +19,5 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-  <div>login</div>
+  <LoginForm />
 </template>

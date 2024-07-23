@@ -13,6 +13,10 @@
     "btnAccess": "Ingresar",
     "btnRegister": "Registrar",
     "phEmail": "Ingrese su correo",
-    "phPassword": "Ingrese su contraseña"
+    "phPassword": "Ingrese su contraseña",
+    "msgErrorLogin": "Verifique su contraseña o correo",
+    "weakLabel": "Demasiado simple",
+    "mediumLabel": "Complejidad media",
+    "strongLabel": "Contraseña compleja"
   }
 }
