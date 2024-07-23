@@ -31,7 +31,7 @@ const sendValue = () => {
 <template>
   <div class="flex w-full flex-col items-center justify-start">
     <div class="w-full max-w-xl rounded-xl bg-white p-5 md:text-2xl">
-      <h1 class="mb-6 text-left text-3xl font-bold text-primary md:text-5xl">
+      <h1 class="mb-6 text-left text-3xl font-bold text-[#142958] md:text-5xl">
         {{ $t('newPasswordPage.title') }}
       </h1>
       <h4 class="mb-6 text-left text-base font-light text-black opacity-60">
@@ -88,7 +88,7 @@ const sendValue = () => {
           <p-button
             :label="$t('newPasswordPage.reset')"
             rounded
-            class="bg-primary text-black"
+            class="text-secondary bg-[#142958]"
             type="submit"
           />
         </div>

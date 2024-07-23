@@ -18,11 +18,11 @@ const submitForm = () => {
 
 <template>
   <div class="flex w-full flex-col items-center justify-start">
-    <div class="bg-white w-full max-w-xl rounded-xl p-5 md:text-2xl">
-      <h1 class="mb-6 text-left text-3xl font-bold text-primary md:text-5xl">
+    <div class="w-full max-w-xl rounded-xl bg-white p-5 md:text-2xl">
+      <h1 class="mb-6 text-left text-3xl font-bold text-[#142958] md:text-5xl">
         {{ $t('forgotPasswordPage.title') }}
       </h1>
-      <h4 class="text-black mb-6 text-left text-base font-light opacity-60">
+      <h4 class="text-secondary mb-6 text-left text-base font-light opacity-60">
         {{ $t('forgotPasswordPage.subtitle') }}
       </h4>
 
@@ -30,7 +30,7 @@ const submitForm = () => {
         <div class="mb-5">
           <label
             for="email"
-            class="text-black block text-sm font-medium"
+            class="text-secondary block text-sm font-medium"
           >
             {{ $t('forgotPasswordPage.emailText') }}
           </label>
@@ -38,7 +38,7 @@ const submitForm = () => {
             id="email"
             v-model="form.email"
             type="email"
-            class="input bg-white text-black mt-1 block w-full"
+            class="input text-secondary mt-1 block w-full bg-white"
             :placeholder="$t('forgotPasswordPage.phEmail')"
             required
           />
@@ -48,13 +48,13 @@ const submitForm = () => {
           <div class="mt-8 flex justify-start space-x-4">
             <p-button
               rounded
-              class="text-black bg-primary"
+              class="text-secondary bg-[#142958]"
               type="submit"
               :label="$t('forgotPasswordPage.next')"
             />
             <NuxtLink
               to="/login"
-              class="p-button p-button-primary p-button-rounded !bg-[var(--color-secondary)] !text-[var(--color-primary)]"
+              class="p-button p-button-[#142958] p-button-rounded !bg-[var(--color-secondary)] !text-[var(--color-black)]"
             >
               {{ $t('forgotPasswordPage.backTo') }}
             </NuxtLink>
