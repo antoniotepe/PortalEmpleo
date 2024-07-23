@@ -16,14 +16,6 @@ const form = reactive<FormData>({
   showConfirmPassword: false,
 })
 
-// const toggleNewPasswordVisibility = () => {
-//   form.showNewPassword = !form.showNewPassword
-// }
-
-// const toggleConfirmPasswordVisibility = () => {
-//   form.showConfirmPassword = !form.showConfirmPassword
-// }
-
 const sendValue = () => {
   if (form.newPassword !== form.confirmPassword) {
     errorPassword.value = true
@@ -38,11 +30,11 @@ const sendValue = () => {
 
 <template>
   <div class="flex w-full flex-col items-center justify-start">
-    <div class="bg-white w-full max-w-xl rounded-xl p-5 md:text-2xl">
+    <div class="w-full max-w-xl rounded-xl bg-white p-5 md:text-2xl">
       <h1 class="mb-6 text-left text-3xl font-bold text-primary md:text-5xl">
         {{ $t('newPasswordPage.title') }}
       </h1>
-      <h4 class="text-black mb-6 text-left text-base font-light opacity-60">
+      <h4 class="mb-6 text-left text-base font-light text-black opacity-60">
         {{ $t('newPasswordPage.subtitle') }}
       </h4>
 
@@ -50,7 +42,7 @@ const sendValue = () => {
         <div class="mb-5">
           <label
             for="password"
-            class="text-black block text-sm font-medium"
+            class="block text-sm font-medium text-black"
           >
             {{ $t('newPasswordPage.textPassword') }}
           </label>
@@ -72,7 +64,7 @@ const sendValue = () => {
         <div class="mb-5">
           <label
             for="confirm-password"
-            class="text-black block text-sm font-medium"
+            class="block text-sm font-medium text-black"
           >
             {{ $t('newPasswordPage.textConfirmPassword') }}
           </label>
@@ -96,14 +88,14 @@ const sendValue = () => {
           <p-button
             :label="$t('newPasswordPage.reset')"
             rounded
-            class="text-black bg-primary"
+            class="bg-primary text-black"
             type="submit"
           />
         </div>
         <div class="mt-5">
           <h3
             v-if="errorPassword"
-            class="text-red-400 text-lg"
+            class="text-lg text-red-400"
           >
             {{ $t('newPasswordPage.msgError') }}
           </h3>
