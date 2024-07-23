@@ -3,4 +3,7 @@ definePageMeta({
   layout: 'auth',
 })
 </script>
-<template><RegisterForm /></template>
+
+<template>
+  <RegisterForm />
+</template>
