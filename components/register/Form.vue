@@ -37,17 +37,14 @@ const register = () => {
   validationRules.forEach((rule) => {
     const isInvalid = rule.condition()
     rule.errorRef.value = isInvalid
-    console.log(isInvalid ? 'Error in validation' : ' Pasa ${rule.errorMessage.toLowerCase()}')
+
     if (isInvalid) {
       allValid = false
     }
   })
 
   if (allValid) {
-    console.log('nombre', form.firstName, form.lastName)
-    console.log('email', form.username)
-    console.log('pass1', form.password)
-    console.log('pass2', form.confirmPassword)
+    // se coloca la api de registro
   }
 }
 </script>
