@@ -5,6 +5,6 @@ const runtimeConfig = useRuntimeConfig()
 export const useApi = $fetch.create({
   baseURL: runtimeConfig.apiUrl,
   headers: {
-    'Content-Type': 'application/json',
+    Accept: 'application/json',
   },
 })

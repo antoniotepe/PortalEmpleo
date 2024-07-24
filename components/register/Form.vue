@@ -1,24 +1,20 @@
 <script lang="ts" setup>
 const errorPassword = ref(false)
 const errorEmail = ref(false)
-
+const errorPasswordLength = ref(false)
 interface FormData {
-  firstName: string
-  lastName: string
   username: string
   password: string
   confirmPassword: string
 }
 
 const form = reactive<FormData>({
-  firstName: '',
-  lastName: '',
   username: '',
   password: '',
   confirmPassword: '',
 })
 
-const register = () => {
+async function register() {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
   const validationRules = [
@@ -29,6 +25,13 @@ const register = () => {
     {
       condition: () => !emailRegex.test(form.username),
       errorRef: errorEmail,
+    },
+    {
+      condition: () =>
+        form.password.length === form.confirmPassword.length &&
+        form.confirmPassword.length <= 8 &&
+        form.password.length <= 8,
+      errorRef: errorPasswordLength,
     },
   ]
 
@@ -44,7 +47,24 @@ const register = () => {
   })
 
   if (allValid) {
-    // se coloca la api de registro
+    try {
+      await $fetch('/api/auth/register', {
+        method: 'POST',
+        headers: {
+          accept: 'application/json',
+        },
+        body: {
+          email: form.username,
+          password: form.password,
+          confirmPassword: form.confirmPassword,
+        },
+      })
+    } catch (error) {
+      if (error.data.statusCode === 422) {
+        console.log(error.data.data.message)
+      }
+      console.log('error en el servidor')
+    }
   }
 }
 </script>
@@ -63,34 +83,6 @@ const register = () => {
         novalidate
         @submit.prevent="register"
       >
-        <div class="flex space-x-5">
-          <div class="w-1/2">
-            <label
-              for="firstName"
-              class="block text-sm font-medium text-black"
-              >{{ $t('register.name') }}</label
-            >
-            <p-input-text
-              v-model="form.firstName"
-              class="p-input-text w-full"
-              :placeholder="$t('register.phName')"
-              required
-            />
-          </div>
-          <div class="w-1/2">
-            <label
-              for="lastName"
-              class="block text-sm font-medium text-black"
-              >{{ $t('register.lastName') }}</label
-            >
-            <p-input-text
-              v-model="form.lastName"
-              class="p-input-text w-full"
-              :placeholder="$t('register.phLastName')"
-              required
-            />
-          </div>
-        </div>
         <div class="mb-5">
           <label
             for="email"
@@ -175,6 +167,12 @@ const register = () => {
               class="text-lg text-red-600"
             >
               {{ $t('register.msgErrorPassword') }}
+            </h3>
+            <h3
+              v-if="errorPasswordLength"
+              class="text-lg text-red-600"
+            >
+              {{ $t('register.msgErrorPasswordLength') }}
             </h3>
           </div>
         </div>

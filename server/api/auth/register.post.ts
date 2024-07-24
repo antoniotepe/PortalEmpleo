@@ -3,6 +3,15 @@ import { FetchError } from 'ofetch'
 import { useApi } from '~/server/utils/useApi'
 import { RegisterSchema } from '~/validators/schemas/register'
 
+type ServiceResponse = {
+  access_token: string
+  fresh_token: string
+  user: {
+    id: number
+    email: string
+  }
+}
+
 //response of the caste api for consumption within the front end
 type Response = {
   access: string
@@ -24,7 +33,7 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    return await useApi<Response>('/api/v1/auth/register', {
+    const response = await useApi<ServiceResponse>('/api/v1/auth/register', {
       method: 'POST',
       body: {
         email: result.data.email,
@@ -32,14 +41,19 @@ export default defineEventHandler(async (event) => {
         password_confirmation: result.data.confirmPassword,
       },
     })
+
+    return {
+      access: response.access_token,
+      refresh: response.fresh_token,
+      user: response.user,
+    } as Response
   } catch (error) {
     if (error instanceof FetchError) {
-      return {
+      throw createError({
         status: error.response?.status || 500,
-        body: {
-          message: error.response?.statusText || 'Internal Server Error',
-        },
-      }
+        statusMessage: error.response?.statusText || 'Internal Server Error',
+        data: error.response?._data?.message,
+      })
     }
 
     return {
