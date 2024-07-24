@@ -53,6 +53,7 @@ export default defineNuxtConfig({
           { path: 'es/login.json' },
           { path: 'es/register.json' },
           { path: 'es/companies.json' },
+          { path: 'es/profile.json' },
         ],
       },
     ],

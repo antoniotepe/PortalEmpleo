@@ -12,6 +12,9 @@
       },
       "save": {
         "label": "Guardar"
+      },
+      "edit": {
+        "label": "Editar"
       }
     }
   }

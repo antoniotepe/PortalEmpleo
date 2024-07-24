@@ -1,0 +1,15 @@
+{
+  "profile": {
+    "personalInformation": "Información Personal",
+    "uniqueIdentificationCode": "Código Único de Identificación",
+    "firstName": "Primer Nombre",
+    "middleName": "Segundo Nombre",
+    "thirdName": "Tercer Nombre",
+    "firstSurname": "Primer Apellido",
+    "secondSurname": "Segundo Apellido",
+    "marriedName": "Apellido de Casada",
+    "notifications": "Notificaciones",
+    "mailingList": "Lista de Correos",
+    "cancel": "Cancelar"
+  }
+}
