@@ -13,6 +13,23 @@ const form = reactive<FormData>({
   remember: false,
   showPassword: false,
 })
+
+async function login() {
+  try {
+    await $fetch('/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: {
+        email: form.username,
+        password: form.password,
+      },
+    })
+  } catch (error) {
+    errorLogin.value = true
+  }
+}
 </script>
 
 <template>
@@ -25,7 +42,7 @@ const form = reactive<FormData>({
         {{ $t('login.loginText') }}
       </h4>
 
-      <form>
+      <form @submit.prevent="login">
         <div class="mb-5">
           <label
             for="email"
@@ -53,6 +70,7 @@ const form = reactive<FormData>({
               v-model="form.password"
               toggle-mask
               fluid
+              :feedback="false"
               :placeholder="$t('register.phPassword')"
               :prompt-label="$t('register.phPassword')"
               :weak-label="$t('register.weakLabel')"
@@ -104,7 +122,7 @@ const form = reactive<FormData>({
           v-if="errorLogin"
           class="text-lg text-red-600"
         >
-          {{ $t('register.msgErrorLogin') }}
+          {{ $t('login.msgErrorLogin') }}
         </h3>
       </form>
     </div>
