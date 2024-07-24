@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 const errorPassword = ref(false)
-const errorCui = ref(false)
 const errorEmail = ref(false)
 
 interface FormData {
