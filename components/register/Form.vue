@@ -62,7 +62,7 @@ async function register() {
       await $fetch('/api/auth/register', {
         method: 'POST',
         headers: {
-          accept: 'application/json',
+          'Content-Type': 'application/json',
         },
         body: {
           email: form.username,
@@ -173,6 +173,8 @@ async function register() {
         <div class="mb-2">
           <div class="flex flex-col space-y-2">
             <p-message
+              v-if="success"
+              :life="3000"
               severity="success"
               position="bottom-left"
             >

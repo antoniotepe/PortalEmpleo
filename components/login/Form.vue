@@ -19,7 +19,7 @@ async function login() {
     await $fetch('/api/auth/login', {
       method: 'POST',
       headers: {
-        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
       body: {
         email: form.username,
