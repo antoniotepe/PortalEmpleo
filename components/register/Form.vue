@@ -173,12 +173,10 @@ async function register() {
         <div class="mb-2">
           <div class="flex flex-col space-y-2">
             <p-message
-              v-if="success"
               severity="success"
-              :life="3000"
               position="bottom-left"
             >
-              Registrado correctamente
+              {{ $t('register.msgSuccess') }}
             </p-message>
             <h3
               v-if="errorEmail"

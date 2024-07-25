@@ -21,6 +21,7 @@
     "weakLabel": "Demasiado simple",
     "mediumLabel": "Complejidad media",
     "strongLabel": "Contraseña compleja",
-    "errorRegister": "Ya existe el correo electrónico en el sistema. Por favor, intente de nuevo "
+    "errorRegister": "Ya existe el correo electrónico en el sistema. Por favor, intente de nuevo ",
+    "msgSuccess": "Se ha registro correctamente"
   }
 }
