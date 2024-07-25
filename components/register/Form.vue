@@ -1,7 +1,12 @@
 <script lang="ts" setup>
+const router = useRouter()
 const errorPassword = ref(false)
 const errorEmail = ref(false)
 const errorPasswordLength = ref(false)
+const errorServer = ref(false)
+const errorRegister = ref(false)
+const success = ref(false)
+
 interface FormData {
   username: string
   password: string
@@ -15,6 +20,12 @@ const form = reactive<FormData>({
 })
 
 async function register() {
+  errorPassword.value = false
+  errorEmail.value = false
+  errorPasswordLength.value = false
+  errorServer.value = false
+  errorRegister.value = false
+
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
   const validationRules = [
@@ -59,11 +70,16 @@ async function register() {
           confirmPassword: form.confirmPassword,
         },
       })
+      success.value = true
+      setTimeout(() => {
+        router.push('/login')
+      }, 3000)
     } catch (error) {
-      if (error.data.statusCode === 422) {
-        console.log(error.data.data.message)
+      if (error.response._data.statusCode !== 422) {
+        errorServer.value = true
+      } else {
+        errorRegister.value = true
       }
-      console.log('error en el servidor')
     }
   }
 }
@@ -156,6 +172,14 @@ async function register() {
         </div>
         <div class="mb-2">
           <div class="flex flex-col space-y-2">
+            <p-message
+              v-if="success"
+              severity="success"
+              :life="3000"
+              position="bottom-left"
+            >
+              Registrado correctamente
+            </p-message>
             <h3
               v-if="errorEmail"
               class="text-lg text-red-600"
@@ -173,6 +197,18 @@ async function register() {
               class="text-lg text-red-600"
             >
               {{ $t('register.msgErrorPasswordLength') }}
+            </h3>
+            <h3
+              v-if="errorServer"
+              class="text-lg text-red-600"
+            >
+              {{ $t('errorServer') }}
+            </h3>
+            <h3
+              v-if="errorRegister"
+              class="text-lg text-red-600"
+            >
+              {{ $t('register.errorRegister') }}
             </h3>
           </div>
         </div>

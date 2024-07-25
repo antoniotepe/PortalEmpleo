@@ -52,7 +52,7 @@ export default defineEventHandler(async (event) => {
       throw createError({
         status: error.response?.status || 500,
         statusMessage: error.response?.statusText || 'Internal Server Error',
-        data: error.response?._data?.message,
+        message: error.response?._data?.message,
       })
     }
 
