@@ -1,5 +1,5 @@
 import { FetchError } from 'ofetch'
-
+import type { ZodError } from 'zod'
 import { useApi } from '~/server/utils/useApi'
 import { RegisterSchema } from '~/validators/schemas/register'
 
@@ -26,10 +26,14 @@ type Response = {
 export default defineEventHandler(async (event) => {
   const result = await readValidatedBody(event, RegisterSchema.safeParse)
   if (!result.success) {
-    return {
+    const zodErrors = result.error as ZodError
+    const errorMessages = zodErrors.errors.map((err) => err.message).join(', ')
+
+    throw createError({
       status: 400,
-      body: result.error,
-    }
+      statusMessage: 'Validation Failure',
+      message: errorMessages,
+    })
   }
 
   try {
@@ -41,6 +45,14 @@ export default defineEventHandler(async (event) => {
         password_confirmation: result.data.confirmPassword,
       },
     })
+
+    if (!response.access_token) {
+      throw createError({
+        status: 400,
+        statusMessage: 'Validation Failure',
+        data: result.error,
+      })
+    }
 
     return {
       access: response.access_token,

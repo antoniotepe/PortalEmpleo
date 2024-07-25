@@ -22,6 +22,10 @@
     "mediumLabel": "Complejidad media",
     "strongLabel": "Contraseña compleja",
     "errorRegister": "Ya existe el correo electrónico en el sistema. Por favor, intente de nuevo ",
-    "msgSuccess": "Se ha registro correctamente"
+    "msgSuccess": "Se ha registro correctamente",
+    "msgErrorPasswordUpper": "La contraseña debe contener al menos una letra mayúscula. Por favor, intente de nuevo.",
+    "msgErrorPasswordLower": "La contraseña debe contener al menos una letra minúscula. Por favor, intente de nuevo.",
+    "msgErrorPasswordDigit": "La contraseña debe contener al menos una letra dígito. Por favor, intente de nuevo.",
+    "msgErrorPasswordCharacter": "La contraseña debe contener al menos un carácter especial. Por favor, intente de nuevo."
   }
 }
