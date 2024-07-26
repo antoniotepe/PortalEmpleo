@@ -16,9 +16,16 @@
     "phEmail": "Ingrese su correo",
     "msgErrorCui": "Su Código Único de Identificación no está en un formato válido. Por favor, intente de nuevo.",
     "msgErrorPassword": "Las contraseñas no coinciden. Por favor, intente de nuevo.",
+    "msgErrorPasswordLength": "El campo de contraseña debe tener al menos 8 caracteres. Por favor, intente de nuevo.",
     "msgErrorEmail": "El correo electrónico no está en un formato válido. Por favor, intente de nuevo",
     "weakLabel": "Demasiado simple",
     "mediumLabel": "Complejidad media",
-    "strongLabel": "Contraseña compleja"
+    "strongLabel": "Contraseña compleja",
+    "errorRegister": "Ya existe el correo electrónico en el sistema. Por favor, intente de nuevo ",
+    "msgSuccess": "Se ha registro correctamente",
+    "msgErrorPasswordUpper": "La contraseña debe contener al menos una letra mayúscula. Por favor, intente de nuevo.",
+    "msgErrorPasswordLower": "La contraseña debe contener al menos una letra minúscula. Por favor, intente de nuevo.",
+    "msgErrorPasswordDigit": "La contraseña debe contener al menos una letra dígito. Por favor, intente de nuevo.",
+    "msgErrorPasswordCharacter": "La contraseña debe contener al menos un carácter especial. Por favor, intente de nuevo."
   }
 }

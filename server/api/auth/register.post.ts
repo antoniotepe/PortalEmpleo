@@ -1,7 +1,16 @@
 import { FetchError } from 'ofetch'
-
+import type { ZodError } from 'zod'
 import { useApi } from '~/server/utils/useApi'
 import { RegisterSchema } from '~/validators/schemas/register'
+
+type ServiceResponse = {
+  access_token: string
+  fresh_token: string
+  user: {
+    id: number
+    email: string
+  }
+}
 
 //response of the caste api for consumption within the front end
 type Response = {
@@ -17,14 +26,18 @@ type Response = {
 export default defineEventHandler(async (event) => {
   const result = await readValidatedBody(event, RegisterSchema.safeParse)
   if (!result.success) {
-    return {
+    const zodErrors = result.error as ZodError
+    const errorMessages = zodErrors.errors.map((err) => err.message).join(', ')
+
+    throw createError({
       status: 400,
-      body: result.error,
-    }
+      statusMessage: 'Validation Failure',
+      message: errorMessages,
+    })
   }
 
   try {
-    return await useApi<Response>('/api/v1/auth/register', {
+    const response = await useApi<ServiceResponse>('/api/v1/auth/register', {
       method: 'POST',
       body: {
         email: result.data.email,
@@ -32,14 +45,27 @@ export default defineEventHandler(async (event) => {
         password_confirmation: result.data.confirmPassword,
       },
     })
+
+    if (!response.access_token) {
+      throw createError({
+        status: 400,
+        statusMessage: 'Validation Failure',
+        data: result.error,
+      })
+    }
+
+    return {
+      access: response.access_token,
+      refresh: response.fresh_token,
+      user: response.user,
+    } as Response
   } catch (error) {
     if (error instanceof FetchError) {
-      return {
+      throw createError({
         status: error.response?.status || 500,
-        body: {
-          message: error.response?.statusText || 'Internal Server Error',
-        },
-      }
+        statusMessage: error.response?.statusText || 'Internal Server Error',
+        message: error.response?._data?.message,
+      })
     }
 
     return {
