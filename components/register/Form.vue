@@ -210,7 +210,7 @@ async function register() {
               v-if="errors.server"
               class="text-lg text-red-600"
             >
-              {{ $t('errorServer') }}
+              {{ $t('errors.server') }}
             </h3>
             <h3
               v-if="errors.register"
