@@ -4,7 +4,7 @@ type Props = {
   label: string
   placeholder?: string
   help?: string
-  items: Array<{ value: T; label: string }>
+  items: Array<{ value: number; label: string }>
 }
 
 const model = defineModel<T>({ required: true })
@@ -22,15 +22,15 @@ const props = defineProps<Props>()
       :input-id="props.id"
       :options="props.items"
       option-label="label"
-      :placeholder="placeholder"
+      :placeholder="props.placeholder"
       variant="filled"
       fluid
-      :aria-describedby="props.help ? `${$props.id}-help` : undefined"
+      :aria-describedby="props.help ? `${props.id}-help` : undefined"
     />
 
     <small
       v-if="props.help"
-      :id="`${$props.id}-help`"
+      :id="`${props.id}-help`"
     >
       {{ props.help }}
     </small>

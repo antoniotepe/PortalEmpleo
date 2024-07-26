@@ -4,10 +4,23 @@ type Props = {
   label: string
   placeholder?: string
   help?: string
+  modelValue?: Date | null
+  view?: string
+  dateFormat?: string
 }
 
-const model = defineModel<string>({ required: true })
 const props = defineProps<Props>()
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: Date | null): void
+}>()
+
+const model = ref<Date | null>(props.modelValue ?? null)
+
+// Observa los cambios en model y emite el valor actualizado
+watch(model, (newVal) => {
+  console.log(newVal)
+  emit('update:modelValue', newVal)
+})
 </script>
 
 <template>
@@ -19,17 +32,17 @@ const props = defineProps<Props>()
     <p-date-picker
       v-model="model"
       :input-id="props.id"
-      view="year"
-      date-format="yy"
-      :placeholder="placeholder"
+      :view="props.view"
+      :date-format="props.dateFormat"
+      :placeholder="props.placeholder"
       variant="filled"
       fluid
-      :aria-describedby="props.help ? `${$props.id}-help` : undefined"
+      :aria-describedby="props.help ? `${props.id}-help` : undefined"
     />
 
     <small
       v-if="props.help"
-      :id="`${$props.id}-help`"
+      :id="`${props.id}-help`"
     >
       {{ props.help }}
     </small>
