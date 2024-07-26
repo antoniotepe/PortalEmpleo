@@ -15,6 +15,9 @@
       },
       "edit": {
         "label": "Editar"
+      },
+      "AddNewMail":{
+        "label": "Agregar Nuevo Correo"
       }
     }
   }
