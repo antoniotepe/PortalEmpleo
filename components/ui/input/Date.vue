@@ -40,11 +40,11 @@ watch(model, (newVal) => {
       :aria-describedby="props.help ? `${props.id}-help` : undefined"
     />
 
-    <small
+    <!-- <small
       v-if="props.help"
       :id="`${props.id}-help`"
     >
       {{ props.help }}
-    </small>
+    </small> -->
   </div>
 </template>
