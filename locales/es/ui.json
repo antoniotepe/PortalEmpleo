@@ -13,6 +13,16 @@
       "save": {
         "label": "Guardar"
       },
+
+      "edit": {
+        "label": "Editar"
+      },
+      "AddNewMail": {
+        "label": "Agregar Nuevo Correo"
+      },
+      "return": {
+        "label": "Regresar"
+      },
       "upload": {
         "label": "Subir"
       },

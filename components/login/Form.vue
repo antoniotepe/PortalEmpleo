@@ -110,7 +110,7 @@ async function login() {
               :label="$t('login.btnAccess')"
             />
             <NuxtLink
-              to="/register"
+              to="/auth/register"
               class="p-button p-button-rounded !bg-[var(--color-white)] text-black"
             >
               {{ $t('login.btnRegister') }}

@@ -53,7 +53,7 @@ const submitForm = () => {
               :label="$t('forgotPasswordPage.next')"
             />
             <NuxtLink
-              to="/login"
+              to="/auth/login"
               class="p-button p-button-[#142958] p-button-rounded !bg-[var(--color-secondary)] !text-[var(--color-black)]"
             >
               {{ $t('forgotPasswordPage.backTo') }}
