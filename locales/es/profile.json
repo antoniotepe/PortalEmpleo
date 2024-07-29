@@ -10,6 +10,14 @@
     "marriedName": "Apellido de Casada",
     "notifications": "Notificaciones",
     "mailingList": "Lista de Correos",
-    "cancel": "Cancelar"
+    "maritalStatus": "Estado Civil",
+    "department": "Departamento",
+    "municipality": "Municipio",
+    "ethnicity": "Etnia",
+    "linguisticCommunity": "Comunidad Lingüística",
+    "birth": "Fecha de Nacimiento",
+    "gender": "Genero",
+    "igss": "igss",
+    "newEmail": "Agrega un nuevo correo"
   }
 }
