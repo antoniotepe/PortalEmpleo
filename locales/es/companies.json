@@ -59,7 +59,8 @@
         },
         "igss": {
           "label": "¿Está inscrita en el IGSS?",
-          "number": "Número de afiliación"
+          "number": "Número de afiliación",
+          "help": "Ingrese el numero de afiliación"
         },
         "irtra": {
           "label": "¿Está inscrita en el IRTRA?"

@@ -1,0 +1,37 @@
+{
+  "location": {
+    "new": {
+      "title": "Ubicación",
+      "sections": {
+        "general": "Información de Ubicación"
+      },
+      "inputs": {
+        "direction": {
+          "label": "Dirección",
+          "placeholder": "Ingrese su dirección",
+          "help": "Ingrese su dirección actual"
+        },
+        "notificationsDirection": {
+          "label": "Dirección de notificaciones",
+          "placeholder": "Ingrese su dirección para notificaciones",
+          "help": "La dirección en donde recibirá sus notificaciones"
+        },
+        "country": {
+          "label": "País",
+          "placeholder": "Ingrese su país aquí",
+          "help": "Ingresar el país en donde reside"
+        },
+        "department": {
+          "label": "Departamento",
+          "placeholder": "Ingrese el departamento en donde vive",
+          "help": "Ingresar el departamento en donde se encuentra su residencia"
+        },
+        "town": {
+          "label": "Municipio",
+          "placeholder": "Ingrese el municipio en donde se encuentra",
+          "help": "Ingresar el municipio en donde se encuentra su residencia"
+        }
+      }
+    }
+  }
+}

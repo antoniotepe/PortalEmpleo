@@ -1,0 +1,41 @@
+{
+  "legalRepresentation": {
+    "new": {
+      "title": "Representación legal",
+      "sections": {
+        "general": "Información de la Representación legal de la empresa"
+      },
+      "inputs": {
+        "isForeign": {
+          "label": "¿Es extranjero?",
+          "help": "Seleccione si el representante legal es extranjero"
+        },
+        "appointmentDate": {
+          "label": "Fecha de nombramiento",
+          "placeholder": "Ingrese la fecha de nombramiento (Acta)",
+          "help": "Ingrese la fecha exacta de su nombramiento"
+        },
+        "notaryAuthorization": {
+          "label": "Notario que autorizo",
+          "placeholder": "Ingrese el nombre del notario que autorizo",
+          "help": "Ingrese el nombre del notario que autorizo"
+        },
+        "appointment": {
+          "label": "Nombramiento",
+          "placeholder": "Ingrese el nombramiento",
+          "help": "Ingrese el nombramiento"
+        },
+        "duration": {
+          "label": "Vigencia",
+          "placeholder": "Ingrese el tiempo que estará nombrado",
+          "help": "Ingrese el tiempo que estará nombrado"
+        },
+        "phone": {
+          "label": "Teléfono",
+          "placeholder": "Ingrese el teléfono de su contacto",
+          "help": "Ingresar el teléfono de su contacto"
+        }
+      }
+    }
+  }
+}
