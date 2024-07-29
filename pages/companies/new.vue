@@ -39,6 +39,10 @@ const form = ref({
   notaryAuthorization: '',
   appointment: '',
   duration: '',
+  registerNumberRepresent: null,
+  invoiceNumberRepresent: null,
+  bookRepresent: null,
+  registerDateRepresent: null,
 })
 
 type Item = {
@@ -46,7 +50,6 @@ type Item = {
   label: string
 }
 
-// Define tipoEmpresas as ref
 const companyType = ref<Item[]>([])
 const entityType = ref<Item[]>([])
 const industry = ref<Item[]>([])
@@ -583,7 +586,7 @@ const submitForm = () => {
 
           <UiInputNumber
             id="numberRegisterLegalRepresentation"
-            v-model="form.registerNumber"
+            v-model="form.registerNumberRepresent"
             :label="$t('patents.new.inputs.registerNumber.label')"
             :placeholder="$t('patents.new.inputs.registerNumber.placeholder')"
             :help="$t('patents.new.inputs.registerNumber.help')"
@@ -591,7 +594,7 @@ const submitForm = () => {
 
           <UiInputNumber
             id="invoiceNumberLegalRepresentation"
-            v-model="form.invoiceNumber"
+            v-model="form.invoiceNumberRepresent"
             :label="$t('patents.new.inputs.invoice.label')"
             :placeholder="$t('patents.new.inputs.invoice.placeholder')"
             :help="$t('patents.new.inputs.invoice.help')"
@@ -599,7 +602,7 @@ const submitForm = () => {
 
           <UiInputNumber
             id="bookPatentLegalRepresentation"
-            v-model="form.book"
+            v-model="form.bookRepresent"
             :label="$t('patents.new.inputs.book.label')"
             :placeholder="$t('patents.new.inputs.book.placeholder')"
             :help="$t('patents.new.inputs.book.help')"
@@ -607,7 +610,7 @@ const submitForm = () => {
 
           <UiInputDate
             id="registerDateLegalRepresentation"
-            v-model="form.registerDate"
+            v-model="form.registerDateRepresent"
             :label="$t('patents.new.inputs.registerDate.label')"
             :placeholder="$t('patents.new.inputs.registerDate.placeholder')"
             :help="$t('patents.new.inputs.registerDate.help')"
