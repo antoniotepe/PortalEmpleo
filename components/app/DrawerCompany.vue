@@ -24,21 +24,17 @@
           >
             <i class="pi pi-home mr-2" />
             <span class="font-medium">Detalle</span>
+            <span
+              class="ml-auto inline-flex items-center justify-center rounded-full bg-primary text-primary-contrast"
+              style="min-width: 1.5rem; height: 1.5rem"
+            >
+              3
+            </span>
           </a>
         </li>
 
         <li>
-          <a
-            v-ripple
-            class="p-ripple flex cursor-pointer items-center rounded p-4 text-surface-700 transition-colors duration-150 hover:bg-surface-100"
-          >
-            <i class="pi pi-bookmark mr-2" />
-            <span class="font-medium">Bookmarks</span>
-          </a>
-        </li>
-
-        <li>
-          <a
+          <div
             v-ripple
             v-styleclass="{
               selector: '@next',
@@ -49,103 +45,36 @@
             }"
             class="p-ripple flex cursor-pointer items-center rounded p-4 text-surface-700 transition-colors duration-150 hover:bg-surface-100"
           >
-            <i class="pi pi-chart-line mr-2" />
-            <span class="font-medium">Reports</span>
+            <i class="pi pi-shop mr-2" />
+            <span class="font-medium">Sucursales</span>
             <i class="pi pi-chevron-down ml-auto" />
-          </a>
+          </div>
+
           <ul
             class="m-0 hidden list-none overflow-y-hidden py-0 pl-4 pr-0 transition-all duration-[400ms] ease-in-out"
           >
             <li>
-              <a
+              <NuxtLink
                 v-ripple
-                v-styleclass="{
-                  selector: '@next',
-                  enterFromClass: 'hidden',
-                  enterActiveClass: 'animate-slidedown',
-                  leaveToClass: 'hidden',
-                  leaveActiveClass: 'animate-slideup',
-                }"
+                to="/companies/branches"
                 class="p-ripple flex cursor-pointer items-center rounded p-4 text-surface-700 transition-colors duration-150 hover:bg-surface-100"
               >
-                <i class="pi pi-chart-line mr-2" />
-                <span class="font-medium">Revenue</span>
-                <i class="pi pi-chevron-down ml-auto" />
-              </a>
-              <ul
-                class="m-0 hidden list-none overflow-y-hidden py-0 pl-4 pr-0 transition-all duration-[400ms] ease-in-out"
-              >
-                <li>
-                  <a
-                    v-ripple
-                    class="p-ripple flex cursor-pointer items-center rounded p-4 text-surface-700 transition-colors duration-150 hover:bg-surface-100"
-                  >
-                    <i class="pi pi-table mr-2" />
-                    <span class="font-medium">View</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    v-ripple
-                    class="p-ripple flex cursor-pointer items-center rounded p-4 text-surface-700 transition-colors duration-150 hover:bg-surface-100"
-                  >
-                    <i class="pi pi-search mr-2" />
-                    <span class="font-medium">Search</span>
-                  </a>
-                </li>
-              </ul>
+                <i class="pi pi-list mr-2" />
+                <span class="font-medium">Listado</span>
+              </NuxtLink>
             </li>
+
             <li>
-              <a
+              <NuxtLink
                 v-ripple
+                to="/companies/branches/new"
                 class="p-ripple flex cursor-pointer items-center rounded p-4 text-surface-700 transition-colors duration-150 hover:bg-surface-100"
               >
-                <i class="pi pi-chart-line mr-2" />
-                <span class="font-medium">Expenses</span>
-              </a>
+                <i class="pi pi-file-plus mr-2" />
+                <span class="font-medium">Añadir</span>
+              </NuxtLink>
             </li>
           </ul>
-        </li>
-        <li>
-          <a
-            v-ripple
-            class="p-ripple flex cursor-pointer items-center rounded p-4 text-surface-700 transition-colors duration-150 hover:bg-surface-100"
-          >
-            <i class="pi pi-users mr-2" />
-            <span class="font-medium">Team</span>
-          </a>
-        </li>
-        <li>
-          <a
-            v-ripple
-            class="p-ripple flex cursor-pointer items-center rounded p-4 text-surface-700 transition-colors duration-150 hover:bg-surface-100"
-          >
-            <i class="pi pi-comments mr-2" />
-            <span class="font-medium">Messages</span>
-            <span
-              class="ml-auto inline-flex items-center justify-center rounded-full bg-primary text-primary-contrast"
-              style="min-width: 1.5rem; height: 1.5rem"
-              >3</span
-            >
-          </a>
-        </li>
-        <li>
-          <a
-            v-ripple
-            class="p-ripple flex cursor-pointer items-center rounded p-4 text-surface-700 transition-colors duration-150 hover:bg-surface-100"
-          >
-            <i class="pi pi-calendar mr-2" />
-            <span class="font-medium">Calendar</span>
-          </a>
-        </li>
-        <li>
-          <a
-            v-ripple
-            class="p-ripple flex cursor-pointer items-center rounded p-4 text-surface-700 transition-colors duration-150 hover:bg-surface-100"
-          >
-            <i class="pi pi-cog mr-2" />
-            <span class="font-medium">Settings</span>
-          </a>
         </li>
       </ul>
     </li>
