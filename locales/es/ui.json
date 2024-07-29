@@ -13,6 +13,7 @@
       "save": {
         "label": "Guardar"
       },
+
       "edit": {
         "label": "Editar"
       },
@@ -21,6 +22,21 @@
       },
       "return": {
         "label": "Regresar"
+      "upload": {
+        "label": "Subir"
+      },
+      "chooseFile": {
+        "label": "Selecciona el archivo para subir"
+      },
+      "remove": {
+        "label": "Remover"
+      },
+      "newContact": {
+        "label": "Agregar nuevo contacto"
+      },
+      "deleteContact": {
+        "label": "Eliminar nuevo contacto"
+
       }
     }
   }
