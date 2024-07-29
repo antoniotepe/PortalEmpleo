@@ -1,5 +1,8 @@
 <script setup lang="ts">
+const auth = useAuthStore()
+
 const errorLogin = ref(false)
+
 interface FormData {
   username: string
   password: string
@@ -16,16 +19,12 @@ const form = reactive<FormData>({
 
 async function login() {
   try {
-    await $fetch('/api/auth/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: {
-        email: form.username,
-        password: form.password,
-      },
+    await auth.login({
+      email: form.username,
+      password: form.password,
     })
+
+    navigateTo('/')
   } catch (error) {
     errorLogin.value = true
   }
