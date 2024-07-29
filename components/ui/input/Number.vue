@@ -2,14 +2,13 @@
 type Props = {
   id: string
   label: string
-  placeholder?: string
   help?: string
-  required?: boolean
-  disabled?: boolean
+  useGrouping?: boolean
+  max?: number | null
 }
 
-const model = defineModel<string>({ required: true })
 const props = defineProps<Props>()
+const model = defineModel<number>({ required: true })
 </script>
 
 <template>
@@ -18,14 +17,13 @@ const props = defineProps<Props>()
       {{ props.label }}
     </label>
 
-    <p-input-text
+    <p-input-number
       :id="props.id"
       v-model="model"
-      :placeholder="placeholder"
       variant="filled"
+      :max="props.max"
+      :use-grouping="props.useGrouping"
       fluid
-      :disabled="props.disabled"
-      :required="props.required"
       :aria-describedby="props.help ? `${$props.id}-help` : undefined"
     />
 

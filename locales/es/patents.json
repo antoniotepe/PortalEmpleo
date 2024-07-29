@@ -1,0 +1,40 @@
+{
+  "patents": {
+    "new": {
+      "title": "Formulario de registro de patentes",
+      "sections": {
+        "general": "Información patentes"
+      },
+      "inputs": {
+        "patentType": {
+          "label": "Tipo de patente",
+          "placeholder": "Seleccione el tipo de patente",
+          "help": "Seleccione el tipo de patente que mejor se ajusta"
+        },
+        "registerNumber": {
+          "label": "Numero de registro",
+          "placeholder": "Ingrese su numero de registro aquí",
+          "help": "Ingresar el numero registrado de su patente"
+        },
+        "invoice": {
+          "label": "Folio",
+          "placeholder": "Ingrese su numero de folio aquí",
+          "help": "Ingresar el numero de folio de su patente"
+        },
+        "book": {
+          "label": "Libro",
+          "placeholder": "Ingrese su numero de libro aquí",
+          "help": "Ingresar el numero de libro de su patente"
+        },
+        "registerDate": {
+          "label": "Fecha de registro",
+          "placeholder": "Ingrese la fecha de registro aquí",
+          "help": "Ingresar la fecha en la que realizo su registro"
+        },
+        "appendDocuments": {
+          "label": "Anexar documento"
+        }
+      }
+    }
+  }
+}

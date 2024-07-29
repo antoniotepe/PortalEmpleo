@@ -1,0 +1,37 @@
+{
+  "contact": {
+    "new": {
+      "title": "Contacto(s)",
+      "sections": {
+        "general": "Información de contacto(s)"
+      },
+      "inputs": {
+        "name": {
+          "label": "Nombre",
+          "placeholder": "Ingrese el nombre de su contacto",
+          "help": "Ingrese el nombre de un contacto"
+        },
+        "position": {
+          "label": "Puesto",
+          "placeholder": "Ingrese el puesto de su contacto",
+          "help": "Ingrese el puesto de su contacto"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Ingrese el email de su contacto",
+          "help": "Ingrese el email de su contacto"
+        },
+        "phone1": {
+          "label": "Teléfono 1",
+          "placeholder": "Ingrese el teléfono de su contacto",
+          "help": "Ingresar el teléfono de su contacto"
+        },
+        "phone2": {
+          "label": "Teléfono 2",
+          "placeholder": "Ingrese el teléfono de su contacto",
+          "help": "Ingresar el teléfono de su contacto"
+        }
+      }
+    }
+  }
+}
