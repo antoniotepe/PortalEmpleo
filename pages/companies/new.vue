@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const form = ref({
   foreign: false,
-  nit: null,
+  nit: 0,
   name: '',
   comercialName: '',
   companyType: '',
@@ -12,11 +12,11 @@ const form = ref({
   guild: '',
   operationYear: null,
   igss: false,
-  affiliationNumber: null,
+  affiliationNumber: 0,
   patentType: '',
-  registerNumber: null,
-  invoiceNumber: null,
-  book: null,
+  registerNumber: 0,
+  invoiceNumber: 0,
+  book: 0,
   registerDate: null,
   FileUpload: null as File | null,
   direction: '',
@@ -29,19 +29,19 @@ const form = ref({
       contactName: '',
       contactPosition: '',
       contactEmail: '',
-      contactPhone: null,
-      contactPhoneTwo: null,
+      contactPhone: 0,
+      contactPhoneTwo: 0,
     },
   ],
-  nitRepresent: null,
+  nitRepresent: 0,
   foreignRepresent: false,
   appointmentDate: null,
   notaryAuthorization: '',
   appointment: '',
   duration: '',
-  registerNumberRepresent: null,
-  invoiceNumberRepresent: null,
-  bookRepresent: null,
+  registerNumberRepresent: 0,
+  invoiceNumberRepresent: 0,
+  bookRepresent: 0,
   registerDateRepresent: null,
 })
 
@@ -143,8 +143,8 @@ const contactSections = ref([
     contactName: '',
     contactPosition: '',
     contactEmail: '',
-    contactPhone: null,
-    contactPhoneTwo: null,
+    contactPhone: 0,
+    contactPhoneTwo: 0,
   },
 ])
 
@@ -153,15 +153,15 @@ const newContact = () => {
     contactName: '',
     contactPosition: '',
     contactEmail: '',
-    contactPhone: null,
-    contactPhoneTwo: null,
+    contactPhone: 0,
+    contactPhoneTwo: 0,
   })
   contactSections.value.push({
     contactName: '',
     contactPosition: '',
     contactEmail: '',
-    contactPhone: null,
-    contactPhoneTwo: null,
+    contactPhone: 0,
+    contactPhoneTwo: 0,
   })
 }
 

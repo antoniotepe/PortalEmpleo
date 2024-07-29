@@ -4,12 +4,11 @@ type Props = {
   label: string
   help?: string
   useGrouping?: boolean
-  modelValue?: number | null
   max?: number | null
 }
 
 const props = defineProps<Props>()
-const model = ref<number | null>(props.modelValue ?? null)
+const model = defineModel<number>({ required: true })
 </script>
 
 <template>
@@ -17,6 +16,7 @@ const model = ref<number | null>(props.modelValue ?? null)
     <label :for="props.id">
       {{ props.label }}
     </label>
+
     <p-input-number
       :id="props.id"
       v-model="model"

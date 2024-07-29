@@ -10,17 +10,11 @@ type Props = {
 }
 
 const props = defineProps<Props>()
-const emit = defineEmits<{
-  (e: 'update:modelValue', value: Date | null): void
-}>()
-
 const model = ref<Date | null>(props.modelValue ?? null)
 
-// Observa los cambios en model y emite el valor actualizado
-watch(model, (newVal) => {
-  console.log(newVal)
-  emit('update:modelValue', newVal)
-})
+const handleDateSelect = (date: Date) => {
+  model.value = date
+}
 </script>
 
 <template>
@@ -38,13 +32,14 @@ watch(model, (newVal) => {
       variant="filled"
       fluid
       :aria-describedby="props.help ? `${props.id}-help` : undefined"
+      @date-select="handleDateSelect"
     />
 
-    <!-- <small
+    <small
       v-if="props.help"
       :id="`${props.id}-help`"
     >
       {{ props.help }}
-    </small> -->
+    </small>
   </div>
 </template>
