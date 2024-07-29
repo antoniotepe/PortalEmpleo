@@ -4,6 +4,7 @@ type Props = {
   label: string
   placeholder?: string
   help?: string
+  required?: boolean
 }
 
 const model = defineModel<string>({ required: true })
@@ -22,6 +23,7 @@ const props = defineProps<Props>()
       :placeholder="placeholder"
       variant="filled"
       fluid
+      :required="props.required"
       :aria-describedby="props.help ? `${$props.id}-help` : undefined"
     />
 
