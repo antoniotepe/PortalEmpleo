@@ -8,7 +8,7 @@ interface emailEntry {
   dateMailAdded: string
 }
 
-const InitProfileData = {
+const initProfileData = {
   cui: '3279501101',
   firstName: 'Ana',
   secondName: 'Cristina',
@@ -32,14 +32,14 @@ const InitProfileData = {
   ] as emailEntry[],
 }
 
-const ProfileData = reactive({ ...InitProfileData })
-const OriginalProfileData = ref({ ...InitProfileData }) // esta es la copia
+const profileData = reactive({ ...initProfileData })
+const originalProfileData = ref({ ...initProfileData }) // esta es la copia
 
 const cancelEdit = () => {
   isEditing.value = false
   if (isEditing.value === false) {
-    Object.assign(ProfileData, OriginalProfileData.value)
-    console.log(ProfileData.firstName)
+    Object.assign(profileData, originalProfileData.value)
+    console.log(profileData.firstName)
   }
 }
 
@@ -50,7 +50,7 @@ const toggleEdit = () => {
   }
 }
 const addNewEmail = () => {
-  ProfileData.mails.push({
+  profileData.mails.push({
     email: newEmail.value,
     dateMailAdded: new Date().toLocaleDateString(),
   })
@@ -72,9 +72,9 @@ const addNewEmail = () => {
 
             <div class="flex flex-col justify-center">
               <h1 class="text-2xl font-bold">
-                {{ ProfileData.firstName }} {{ ProfileData.firstSurname }}
+                {{ profileData.firstName }} {{ profileData.firstSurname }}
               </h1>
-              <p class="text-subtitle">{{ ProfileData.mails[0].email }}</p>
+              <p class="text-subtitle">{{ profileData.mails[0].email }}</p>
             </div>
           </div>
           <div v-if="profileView">
@@ -117,19 +117,14 @@ const addNewEmail = () => {
           <div class="grid grid-cols-3 gap-4">
             <form @submit.prevent="addNewEmail">
               <div class="mb-5 flex flex-col gap-2">
-                <label for="newEmail"> {{ $t('profile.newEmail') }} </label>
-
-                <p-input-text
+                <UiInputText
                   id="email"
                   v-model="newEmail"
-                  type="email"
-                  filled
-                  fluid
+                  :label="$t('profile.newEmail')"
                   :placeholder="$t('register.emailText')"
                   required
                 />
               </div>
-
               <p-button
                 icon="pi pi-plus"
                 class="text-secondary redondeado-lg border-0 bg-[#142958]"
@@ -149,29 +144,27 @@ const addNewEmail = () => {
 
               <p-input-text
                 id="cui"
-                v-model="ProfileData.cui"
+                v-model="profileData.cui"
                 filled
                 fluid
                 disabled="false"
               />
             </div>
             <div class="flex flex-col gap-2">
-              <label for="igss"> {{ $t('profile.igss') }} </label>
-
-              <p-input-text
+              <UiInputText
                 id="igss"
-                v-model="ProfileData.igss"
+                v-model="profileData.igss"
+                :label="$t('profile.igss')"
                 filled
                 fluid
                 disabled="false"
               />
             </div>
             <div class="flex flex-col gap-2">
-              <label for="birth"> {{ $t('profile.birth') }} </label>
-
-              <p-input-text
+              <UiInputText
                 id="birth"
-                v-model="ProfileData.birth"
+                v-model="profileData.birth"
+                :label="$t('profile.birth')"
                 filled
                 fluid
                 disabled="false"
@@ -181,23 +174,21 @@ const addNewEmail = () => {
 
           <div class="grid grid-cols-3 gap-4">
             <div class="flex flex-col gap-2">
-              <label for="firstName"> {{ $t('profile.firstName') }} </label>
-
-              <p-input-text
+              <UiInputText
                 id="firstName"
-                v-model="ProfileData.firstName"
+                v-model="profileData.firstName"
                 filled
                 fluid
                 :disabled="!isEditing"
+                :label="$t('profile.firstName')"
               />
             </div>
 
             <div class="flex flex-col gap-2">
-              <label for="secondName"> {{ $t('profile.middleName') }} </label>
-
-              <p-input-text
+              <UiInputText
                 id="secondName"
-                v-model="ProfileData.secondName"
+                v-model="profileData.secondName"
+                :label="$t('profile.firstName')"
                 filled
                 fluid
                 :disabled="!isEditing"
@@ -205,11 +196,10 @@ const addNewEmail = () => {
             </div>
 
             <div class="flex flex-col gap-2">
-              <label for="thirdName"> {{ $t('profile.thirdName') }} </label>
-
-              <p-input-text
+              <UiInputText
                 id="thirdName"
-                v-model="ProfileData.thirdName"
+                v-model="profileData.thirdName"
+                :label="$t('profile.thirdName')"
                 filled
                 fluid
                 :disabled="!isEditing"
@@ -219,11 +209,10 @@ const addNewEmail = () => {
 
           <div class="grid grid-cols-3 gap-4">
             <div class="flex flex-col gap-2">
-              <label for="firstSurname"> {{ $t('profile.firstSurname') }} </label>
-
-              <p-input-text
-                id="firstSurname"
-                v-model="ProfileData.firstSurname"
+              <UiInputText
+                id="fistSurname"
+                v-model="profileData.firstSurname"
+                :label="$t('profile.firstSurname')"
                 filled
                 fluid
                 :disabled="!isEditing"
@@ -231,11 +220,10 @@ const addNewEmail = () => {
             </div>
 
             <div class="flex flex-col gap-2">
-              <label for="secondSurname"> {{ $t('profile.secondSurname') }} </label>
-
-              <p-input-text
+              <UiInputText
                 id="secondSurname"
-                v-model="ProfileData.secondSurname"
+                v-model="profileData.secondSurname"
+                :label="$t('profile.secondSurname')"
                 filled
                 fluid
                 :disabled="!isEditing"
@@ -243,24 +231,23 @@ const addNewEmail = () => {
             </div>
 
             <div class="flex flex-col gap-2">
-              <label for="marriedSurname"> {{ $t('profile.marriedName') }} </label>
-
-              <p-input-text
+              <UiInputText
                 id="marriedSurname"
-                v-model="ProfileData.lastNameMarried"
+                v-model="profileData.lastNameMarried"
+                :label="$t('profile.marriedName')"
                 filled
                 fluid
                 :disabled="!isEditing"
               />
             </div>
           </div>
+
           <div class="grid grid-cols-3 gap-4">
             <div class="flex flex-col gap-2">
-              <label for="maritalStatus"> {{ $t('profile.maritalStatus') }}</label>
-
-              <p-input-text
+              <UiInputText
                 id="maritalStatus"
-                v-model="ProfileData.maritalStatus"
+                v-model="profileData.maritalStatus"
+                :label="$t('profile.maritalStatus')"
                 filled
                 fluid
                 :disabled="!isEditing"
@@ -268,22 +255,20 @@ const addNewEmail = () => {
             </div>
 
             <div class="flex flex-col gap-2">
-              <label for="gender"> {{ $t('profile.gender') }} </label>
-
-              <p-input-text
+              <UiInputText
                 id="gender"
-                v-model="ProfileData.gender"
+                v-model="profileData.gender"
+                :label="$t('profile.gender')"
                 filled
                 fluid
                 :disabled="!isEditing"
               />
             </div>
             <div class="flex flex-col gap-2">
-              <label for="linguisticCommunity"> {{ $t('profile.linguisticCommunity') }} </label>
-
-              <p-input-text
+              <UiInputText
                 id="linguisticCommunity"
-                v-model="ProfileData.linguisticCommunity"
+                v-model="profileData.linguisticCommunity"
+                :label="$t('profile.linguisticCommunity')"
                 filled
                 fluid
                 :disabled="!isEditing"
@@ -293,23 +278,20 @@ const addNewEmail = () => {
 
           <div class="grid grid-cols-3 gap-4">
             <div class="flex flex-col gap-2">
-              <label for=""> {{ $t('profile.department') }}</label>
-
-              <p-input-text
+              <UiInputText
                 id="department"
-                v-model="ProfileData.department"
+                v-model="profileData.department"
+                :label="$t('profile.department')"
                 filled
                 fluid
                 :disabled="!isEditing"
               />
             </div>
-
             <div class="flex flex-col gap-2">
-              <label for="municipality"> {{ $t('profile.municipality') }} </label>
-
-              <p-input-text
+              <UiInputText
                 id="municipality"
-                v-model="ProfileData.municipality"
+                v-model="profileData.municipality"
+                :label="$t('profile.municipality')"
                 filled
                 fluid
                 :disabled="!isEditing"
@@ -317,11 +299,10 @@ const addNewEmail = () => {
             </div>
 
             <div class="flex flex-col gap-2">
-              <label for="ethnicity"> {{ $t('profile.ethnicity') }} </label>
-
-              <p-input-text
+              <UiInputText
                 id="ethnicity"
-                v-model="ProfileData.ethnicity"
+                v-model="profileData.ethnicity"
+                :label="$t('profile.ethnicity')"
                 filled
                 fluid
                 :disabled="!isEditing"
@@ -339,7 +320,7 @@ const addNewEmail = () => {
         <div class="flex flex-col gap-4">
           <div class="flex flex-wrap justify-start gap-5">
             <div
-              v-for="email in ProfileData.mails"
+              v-for="email in profileData.mails"
               :key="email.email"
               class="flex"
             >
