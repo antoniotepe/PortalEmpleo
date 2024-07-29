@@ -33,7 +33,7 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    const response = await useApi<ServiceResponse>('/api/v1/auth/login', {
+    const response = await useApi<ServiceResponse>('/auth-t-service/api/v1/auth/login', {
       method: 'POST',
       body: {
         email: result.data.email,
