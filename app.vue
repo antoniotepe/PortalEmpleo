@@ -1,3 +1,4 @@
+
 <script lang="ts" setup>
 import { useAuthStore } from './stores/auth'
 
@@ -7,6 +8,7 @@ onBeforeMount(() => {
   auth.init()
 })
 </script>
+
 
 <template>
   <Head>
