@@ -1,0 +1,10 @@
+{
+  "collaborators": {
+    "listCollaborators": "Listado de colaboradores",
+    "addCollaborator": "Añadir nuevo colaborador",
+    "fullName": "Nombre completo",
+    "email": "Correo asociado",
+    "actions": "Acciones",
+    "searchPartner": "Buscar colaborador"
+  }
+}

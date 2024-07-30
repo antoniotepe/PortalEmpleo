@@ -57,11 +57,9 @@ export default defineNuxtConfig({
           { path: 'es/location.json' },
           { path: 'es/contact.json' },
           { path: 'es/password.json' },
-
           { path: 'es/profile.json' },
-
           { path: 'es/legalRepresentation.json' },
-
+          { path: 'es/collaborators.json' },
         ],
       },
     ],
