@@ -10,7 +10,7 @@ interface emailEntry {
 
 const initProfileData = {
   cui: '3279501101',
-  firstName: 'Ana',
+  firstName: 'colaboradora',
   secondName: 'Cristina',
   thirdName: 'Eloisa',
   firstSurname: 'Aguirre',
@@ -308,39 +308,6 @@ const addNewEmail = () => {
                 :disabled="!isEditing"
               />
             </div>
-          </div>
-        </div>
-      </template>
-    </p-card>
-
-    <p-card>
-      <template #title>{{ $t('profile.notifications') }}</template>
-
-      <template #content>
-        <div class="flex flex-col gap-4">
-          <div class="flex flex-wrap justify-start gap-5">
-            <div
-              v-for="email in profileData.mails"
-              :key="email.email"
-              class="flex"
-            >
-              <div class="flex place-items-center rounded-full bg-[#ECF3FF] p-3">
-                <i class="pi pi-envelope bg-[#4182F9] text-[#ffffff]" />
-              </div>
-              <div class="ml-2">
-                <p>{{ email.email }}</p>
-                <p class="text-black opacity-60">{{ email.dateMailAdded }}</p>
-              </div>
-            </div>
-          </div>
-          <div class="">
-            <p-button
-              v-if="!profileView"
-              icon="pi pi-plus"
-              class="redondeado-lg border-0 bg-[#ECF3FF] px-5 text-[#4182F9]"
-              :label="$t('ui.buttons.AddNewMail.label')"
-              @click="profileView = !profileView"
-            />
           </div>
         </div>
       </template>
