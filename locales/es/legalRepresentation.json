@@ -3,7 +3,7 @@
     "new": {
       "title": "Representación legal",
       "sections": {
-        "general": "Información de la Representación legal de la empresa"
+        "general": "Representación legal"
       },
       "inputs": {
         "isForeign": {

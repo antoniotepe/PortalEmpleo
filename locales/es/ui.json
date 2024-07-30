@@ -37,6 +37,12 @@
       },
       "deleteContact": {
         "label": "Eliminar nuevo contacto"
+      },
+      "next": {
+        "label": "Siguiente"
+      },
+      "back": {
+        "label": "Anterior"
       }
     }
   }
