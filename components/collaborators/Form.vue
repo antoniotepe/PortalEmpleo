@@ -1,12 +1,6 @@
 <script lang="ts" setup>
 const profileView = ref(false)
 const isEditing = ref(false)
-const newEmail = ref('')
-
-interface emailEntry {
-  email: string
-  dateMailAdded: string
-}
 
 const initProfileData = {
   cui: '3279501101',
@@ -24,12 +18,7 @@ const initProfileData = {
   gender: 'Femenino',
   igss: '123456789',
   linguisticCommunity: 'ComunidadLingüística',
-  mails: [
-    {
-      email: 'amy.elsner@gmail.com',
-      dateMailAdded: '01/07/2024',
-    },
-  ] as emailEntry[],
+  email: 'amy.elsner@gmail.com',
 }
 
 const profileData = reactive({ ...initProfileData })
@@ -39,7 +28,6 @@ const cancelEdit = () => {
   isEditing.value = false
   if (isEditing.value === false) {
     Object.assign(profileData, originalProfileData.value)
-    console.log(profileData.firstName)
   }
 }
 
@@ -48,13 +36,6 @@ const toggleEdit = () => {
   if (!isEditing.value) {
     // Aquí puedes agregar la lógica para guardar los cambios
   }
-}
-const addNewEmail = () => {
-  profileData.mails.push({
-    email: newEmail.value,
-    dateMailAdded: new Date().toLocaleDateString(),
-  })
-  newEmail.value = ''
 }
 </script>
 
@@ -74,7 +55,7 @@ const addNewEmail = () => {
               <h1 class="text-2xl font-bold">
                 {{ profileData.firstName }} {{ profileData.firstSurname }}
               </h1>
-              <p class="text-subtitle">{{ profileData.mails[0].email }}</p>
+              <p class="text-subtitle">{{ profileData.email }}</p>
             </div>
           </div>
           <div v-if="profileView">
@@ -113,31 +94,7 @@ const addNewEmail = () => {
       <template #title>{{ $t('profile.personalInformation') }}</template>
 
       <template #content>
-        <div v-if="profileView">
-          <div class="grid grid-cols-3 gap-4">
-            <form @submit.prevent="addNewEmail">
-              <div class="mb-5 flex flex-col gap-2">
-                <UiInputText
-                  id="email"
-                  v-model="newEmail"
-                  :label="$t('profile.newEmail')"
-                  :placeholder="$t('register.emailText')"
-                  required
-                />
-              </div>
-              <p-button
-                icon="pi pi-plus"
-                class="text-secondary redondeado-lg border-0 bg-[#142958]"
-                type="submit"
-                :label="$t('ui.buttons.AddNewMail.label')"
-              />
-            </form>
-          </div>
-        </div>
-        <div
-          v-else
-          class="flex flex-col gap-4"
-        >
+        <div class="flex flex-col gap-4">
           <div class="grid grid-cols-3 gap-4">
             <div class="flex flex-col gap-2">
               <label for="cui"> {{ $t('profile.uniqueIdentificationCode') }} </label>
