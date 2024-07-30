@@ -3,6 +3,7 @@
     "personalInformation": "Información Personal",
     "uniqueIdentificationCode": "Código Único de Identificación",
     "firstName": "Primer Nombre",
+    "secondName": "Segundo Nombre",
     "middleName": "Segundo Nombre",
     "thirdName": "Tercer Nombre",
     "firstSurname": "Primer Apellido",
