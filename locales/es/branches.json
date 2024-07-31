@@ -1,0 +1,23 @@
+{
+  "branches": {
+    "list": {
+      "title": "Listado de sucursales disponibles"
+    },
+    "message": {
+      "deleteBranch": {
+        "label": "¿Está seguro de eliminar la sucursal "
+      }
+    },
+    "new": {
+      "title": "Formulario de registro de sucursales",
+      "inputs": {
+        "economicActivity": {
+          "label": "Actividad económica"
+        },
+        "sameIgss": {
+          "label": "¿Posee el mismo IGSS que la empresa matriz?"
+        }
+      }
+    }
+  }
+}

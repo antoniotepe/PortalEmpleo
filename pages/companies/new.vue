@@ -415,9 +415,6 @@ const submitForm = () => {
                     @clear="onClear()"
                     @remove="onRemove()"
                   >
-                    <template #badge>
-                      <span>Custom Badge Text</span>
-                    </template>
                     <template #empty>
                       <span>Sube tu archivo aquí.</span>
                     </template>
