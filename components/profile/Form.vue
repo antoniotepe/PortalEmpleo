@@ -39,7 +39,6 @@ const cancelEdit = () => {
   isEditing.value = false
   if (isEditing.value === false) {
     Object.assign(profileData, originalProfileData.value)
-    console.log(profileData.firstName)
   }
 }
 

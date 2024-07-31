@@ -39,7 +39,7 @@ const form = reactive<FormData>({
 })
 
 const save = () => {
-  console.log('Datos guardados:', form)
+  //se guarda los datos
 }
 </script>
 

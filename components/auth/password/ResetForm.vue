@@ -19,10 +19,8 @@ const form = reactive<FormData>({
 const sendValue = () => {
   if (form.newPassword !== form.confirmPassword) {
     errorPassword.value = true
-    console.log('Verifica las contraseñas')
   } else {
     errorPassword.value = false
-    console.log('Contraseñas coinciden')
     router.push('/login')
   }
 }

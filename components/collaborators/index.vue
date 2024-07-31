@@ -1,8 +1,12 @@
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue'
 import { FilterMatchMode } from '@primevue/core/api'
-import { useRouter } from 'vue-router'
 import { getUsers } from '~/service/collaborators'
+
+const confirm = useConfirm()
+const toast = useToast()
+
+const person = ref([])
+const loading = ref(true)
 
 const filters = ref({
   global: { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -10,27 +14,42 @@ const filters = ref({
   email: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
 })
 
-const person = ref([])
-const loading = ref(true)
-const router = useRouter()
-
 onMounted(async () => {
   try {
     const users = await getUsers()
     person.value = users
   } catch (error) {
-    console.error('Error fetching users:', error)
+    // si existe un error mandar por aqui
   } finally {
     loading.value = false
   }
 })
 
-function handleEdit(id) {
-  router.push(`/collaborators/profile/${id}`)
-}
-
-function handleDelete(id) {
-  console.log('se elimino el valor', id)
+function handleDelete(id: number) {
+  confirm.require({
+    message: `Esta seguro que quiere eliminar al colaborador ${id}?`,
+    header: 'Confirma la operación',
+    icon: 'pi pi-info-circle text-red-600',
+    rejectLabel: 'Cancel',
+    rejectProps: {
+      label: 'Cancel',
+      severity: 'secondary',
+      outlined: true,
+    },
+    acceptProps: {
+      label: 'Delete',
+      severity: 'danger',
+    },
+    accept: () => {
+      //se coloca aqui para eliminar
+      toast.add({
+        severity: 'info',
+        summary: 'Confirmado',
+        detail: 'Se elimino al colaborador',
+        life: 3000,
+      })
+    },
+  })
 }
 </script>
 
@@ -55,6 +74,8 @@ function handleDelete(id) {
         </div>
       </template>
       <template #content>
+        <p-toast />
+        <p-confirm-dialog />
         <p-data-table
           v-model:filters="filters"
           :value="person"
@@ -112,11 +133,14 @@ function handleDelete(id) {
           >
             <template #body="{ data }">
               <div class="flex space-x-16">
-                <p-iconField>
-                  <p-input-icon @click="handleEdit(data.id)">
-                    <i class="pi pi-pencil cursor-pointer text-xl hover:text-[#4182F9]" />
-                  </p-input-icon>
-                </p-iconField>
+                <NuxtLink :to="`/collaborators/profile/${data.id}`">
+                  <p-iconField>
+                    <p-input-icon>
+                      <i class="pi pi-pencil cursor-pointer text-xl hover:text-[#4182F9]" />
+                    </p-input-icon>
+                  </p-iconField>
+                </NuxtLink>
+
                 <p-iconField>
                   <p-input-icon @click="handleDelete(data.id)">
                     <i class="pi pi-trash cursor-pointer text-xl hover:text-red-600" />
