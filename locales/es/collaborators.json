@@ -1,0 +1,14 @@
+{
+  "collaborators": {
+    "listCollaborators": "Listado de colaboradores",
+    "addCollaborator": "Añadir nuevo colaborador",
+    "fullName": "Nombre completo",
+    "email": "Correo asociado",
+    "actions": "Acciones",
+    "searchPartner": "Buscar colaborador",
+    "loading": "Cargando datos de los colaboradores. Por favor, espere.",
+    "empty": "No hay datos disponibles.",
+    "register": "Ingrese los datos del colaborador",
+    "notification": "Notificaciones"
+  }
+}

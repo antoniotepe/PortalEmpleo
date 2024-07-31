@@ -3,5 +3,5 @@ definePageMeta({ layout: 'auth' })
 </script>
 
 <template>
-  <LoginForm />
+  <AuthLoginForm />
 </template>
