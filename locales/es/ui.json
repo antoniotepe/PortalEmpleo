@@ -13,7 +13,6 @@
       "save": {
         "label": "Guardar"
       },
-
       "edit": {
         "label": "Editar"
       },
@@ -49,6 +48,9 @@
       },
       "delete": {
         "label": "Eliminar"
+      },
+      "accept": {
+        "label": "Aceptar"
       }
     },
     "message": {
