@@ -43,6 +43,21 @@
       },
       "back": {
         "label": "Anterior"
+      },
+      "confirmation": {
+        "label": "Confirmación"
+      },
+      "delete": {
+        "label": "Eliminar"
+      }
+    },
+    "message": {
+      "general": {
+        "label": "Información general"
+      },
+      "tradeName": {
+        "label": "Nombre comercial",
+        "help": "Ingrese el nombre comercial de su sucursal"
       }
     }
   }
