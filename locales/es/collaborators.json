@@ -8,6 +8,7 @@
     "searchPartner": "Buscar colaborador",
     "loading": "Cargando datos de los colaboradores. Por favor, espere.",
     "empty": "No hay datos disponibles.",
-    "register": "Ingrese los datos del colaborador"
+    "register": "Ingrese los datos del colaborador",
+    "notification": "Notificaciones"
   }
 }
