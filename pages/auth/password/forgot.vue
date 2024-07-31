@@ -12,11 +12,11 @@ const handleNext = (emailValue: string) => {
 </script>
 
 <template>
-  <PasswordForgot
+  <AuthPasswordForgot
     v-if="!showNewPassword"
     @next="handleNext"
   />
-  <PasswordResetForm
+  <AuthPasswordResetForm
     v-else
     :email="email"
   />

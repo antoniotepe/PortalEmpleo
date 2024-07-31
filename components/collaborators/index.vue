@@ -1,7 +1,8 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { FilterMatchMode } from '@primevue/core/api'
-import { navigateTo } from 'nuxt/app'
+import { useRouter } from 'vue-router'
+import { getUsers } from '~/service/collaborators'
 
 const filters = ref({
   global: { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -9,18 +10,25 @@ const filters = ref({
   email: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
 })
 
-const products = ref([
-  { id: 1, name: 'Mario Aldana', email: 'a@gmail.com' },
-  { id: 2, name: 'Mateo Lux', email: 'b@gmail.com' },
-  { id: 3, name: 'Alejandro Gomez', email: 'c@gmail.com' },
-  { id: 4, name: 'Mariana Castillo', email: 'd@gmail.com' },
-  { id: 5, name: 'Alejandra Alvarez', email: 'e@gmail.com' },
-  { id: 6, name: 'Nombre extra', email: 'f@gmail.com' },
-])
+const person = ref([])
+const loading = ref(true)
+const router = useRouter()
+
+onMounted(async () => {
+  try {
+    const users = await getUsers()
+    person.value = users
+  } catch (error) {
+    console.error('Error fetching users:', error)
+  } finally {
+    loading.value = false
+  }
+})
 
 function handleEdit(id) {
-  navigateTo(`/collaborators/${id}`)
+  router.push(`/collaborators/profile/${id}`)
 }
+
 function handleDelete(id) {
   console.log('se elimino el valor', id)
 }
@@ -49,7 +57,7 @@ function handleDelete(id) {
       <template #content>
         <p-data-table
           v-model:filters="filters"
-          :value="products"
+          :value="person"
           data-key="id"
           table-style="min-width: 50rem"
           paginator
@@ -57,6 +65,8 @@ function handleDelete(id) {
           :rows-per-page-options="[5, 10]"
           filter-display="row"
           :global-filter-fields="['name', 'email']"
+          :loading="loading"
+          empty-message-cell="datos no existen"
         >
           <template #header>
             <div class="my-3 flex justify-end">
@@ -71,8 +81,17 @@ function handleDelete(id) {
               </p-iconField>
             </div>
           </template>
-          <template #empty> No customers found. </template>
-          <template #loading> Loading customers data. Please wait. </template>
+          <template #empty>
+            <div class="flex flex-col items-center text-2xl">
+              {{ $t('collaborators.empty') }}
+            </div>
+          </template>
+          <template #loading>
+            <div class="flex flex-col items-center text-4xl">
+              <i class="pi pi-spin pi-cog text-3xl" />
+              {{ $t('collaborators.loading') }}
+            </div>
+          </template>
           <p-column :header="$t('collaborators.fullName')">
             <template #body="{ data }">
               <div class="flex items-center">
@@ -95,12 +114,12 @@ function handleDelete(id) {
               <div class="flex space-x-16">
                 <p-iconField>
                   <p-input-icon @click="handleEdit(data.id)">
-                    <i class="pi pi-pencil" />
+                    <i class="pi pi-pencil cursor-pointer text-xl hover:text-[#4182F9]" />
                   </p-input-icon>
                 </p-iconField>
                 <p-iconField>
                   <p-input-icon @click="handleDelete(data.id)">
-                    <i class="pi pi-trash" />
+                    <i class="pi pi-trash cursor-pointer text-xl hover:text-red-600" />
                   </p-input-icon>
                 </p-iconField>
               </div>
