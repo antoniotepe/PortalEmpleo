@@ -94,6 +94,15 @@ const addNewEmail = () => {
               :label="isEditing ? $t('ui.buttons.save.label') : $t('ui.buttons.edit.label')"
               @click="toggleEdit"
             />
+            <NuxtLink
+              v-if="!isEditing"
+              to="/collaborators"
+            >
+              <i class="pi pi-arrow-left ml-3 mr-2 text-[#4182F9]" />
+              <span class="text-xl font-medium text-[#4182F9]">{{
+                $t('ui.buttons.return.label')
+              }}</span>
+            </NuxtLink>
             <p-button
               v-if="isEditing"
               icon="pi pi-times"
@@ -313,7 +322,7 @@ const addNewEmail = () => {
     </p-card>
 
     <p-card>
-      <template #title>{{ $t('profile.notifications') }}</template>
+      <template #title>{{ $t('collaborators.email') }}</template>
 
       <template #content>
         <div class="flex flex-col gap-4">

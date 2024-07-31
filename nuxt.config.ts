@@ -1,4 +1,4 @@
-import Aura from '@primevue/themes/aura'
+import { AppTheme } from './theme/theme.js'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -24,7 +24,7 @@ export default defineNuxtConfig({
   primevue: {
     options: {
       theme: {
-        preset: Aura,
+        preset: AppTheme,
         options: {
           darkModeSelector: 'light',
           cssLayer: {
@@ -57,11 +57,14 @@ export default defineNuxtConfig({
           { path: 'es/location.json' },
           { path: 'es/contact.json' },
           { path: 'es/password.json' },
-          { path: 'es/branches.json' },
-          { path: 'es/profile.json' },
 
+          { path: 'es/branches.json' },
+
+          { path: 'es/profile.json' },
           { path: 'es/legalRepresentation.json' },
           { path: 'es/rerit.json' },
+          { path: 'es/collaborators.json' },
+          { path: 'es/toolbar.json' },
         ],
       },
     ],

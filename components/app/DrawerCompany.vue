@@ -32,6 +32,16 @@
             </span>
           </a>
         </li>
+        <li>
+          <NuxtLink
+            v-ripple
+            to="/collaborators"
+            class="p-ripple flex cursor-pointer items-center rounded p-4 text-surface-700 transition-colors duration-150 hover:bg-surface-100"
+          >
+            <i class="pi pi-users mr-2" />
+            <span class="font-medium">{{ $t('toolbar.collaborators') }}</span>
+          </NuxtLink>
+        </li>
 
         <li>
           <div

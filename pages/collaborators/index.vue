@@ -1,3 +1,3 @@
 <template>
-  <CollaboratorsForm />
+  <Collaborators />
 </template>
