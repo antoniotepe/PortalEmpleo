@@ -1,7 +1,6 @@
 <template>
   <div class="mx-auto flex w-full flex-col">
     <div class="flex h-screen min-h-screen flex-1 flex-col md:flex-row">
-      <!-- Columna izquierda -->
       <div class="min-h-screen w-full flex-1 bg-white md:w-1/2">
         <div class="sticky top-0 my-10 flex justify-center bg-white">
           <div class="w-3/4">
@@ -17,8 +16,7 @@
         </div>
       </div>
 
-      <!-- Columna derecha -->
-      <div class="flex min-h-screen flex-1 flex-col bg-slate-100 md:w-1/2">
+      <div class="hidden min-h-screen flex-1 flex-col bg-slate-100 md:flex md:w-1/2">
         <div class="sticky top-10 m-10 my-20 flex gap-5">
           <NuxtLink
             to="/"

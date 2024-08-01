@@ -42,6 +42,7 @@ async function login() {
       </h4>
 
       <form @submit.prevent="login">
+        <!-- TODO(Mynor): Use UiInput -->
         <div class="mb-5">
           <label
             for="email"
@@ -58,6 +59,8 @@ async function login() {
             required
           />
         </div>
+
+        <!-- TODO(Mynor): Use UiInput -->
         <div class="mb-5">
           <label
             for="confirmPassword"

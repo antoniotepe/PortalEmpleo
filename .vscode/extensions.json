@@ -6,6 +6,7 @@
     "nuxtr.nuxt-vscode-extentions",
     "misterj.vue-volar-extention-pack",
     "editorconfig.editorconfig",
-    "eamodio.gitlens"
+    "eamodio.gitlens",
+    "gruntfuggly.todo-tree"
   ]
 }
