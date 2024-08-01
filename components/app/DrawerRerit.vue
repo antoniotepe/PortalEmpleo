@@ -1,3 +1,14 @@
+<script setup lang="ts">
+defineProps<{
+  visible: boolean
+}>()
+
+const emit = defineEmits(['update:visible'])
+
+const closeDrawer = () => {
+  emit('update:visible', false)
+}
+</script>
 <template>
   <ul class="m-0 list-none p-4">
     <li>
@@ -21,6 +32,7 @@
           <NuxtLink
             v-ripple
             to="/rerit/new"
+            @click="closeDrawer"
             class="p-ripple flex cursor-pointer items-center rounded p-4 text-surface-700 transition-colors duration-150 hover:bg-surface-100"
           >
             <i class="pi pi-file mr-2" />

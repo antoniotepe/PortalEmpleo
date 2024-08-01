@@ -2,7 +2,18 @@
 const auth = useAuthStore()
 
 function logout() {
+  closeDrawer()
   auth.logout()
+}
+
+defineProps<{
+  visible: boolean
+}>()
+
+const emit = defineEmits(['update:visible'])
+
+const closeDrawer = () => {
+  emit('update:visible', false)
 }
 </script>
 
@@ -43,6 +54,7 @@ function logout() {
         <li>
           <NuxtLink
             v-ripple
+            @click="closeDrawer"
             to="/collaborators"
             class="p-ripple flex cursor-pointer items-center rounded p-4 text-surface-700 transition-colors duration-150 hover:bg-surface-100"
           >
@@ -75,6 +87,7 @@ function logout() {
               <NuxtLink
                 v-ripple
                 to="/companies/branches"
+                @click="closeDrawer"
                 class="p-ripple flex cursor-pointer items-center rounded p-4 text-surface-700 transition-colors duration-150 hover:bg-surface-100"
               >
                 <i class="pi pi-list mr-2" />
@@ -86,6 +99,7 @@ function logout() {
               <NuxtLink
                 v-ripple
                 to="/companies/branches/new"
+                @click="closeDrawer"
                 class="p-ripple flex cursor-pointer items-center rounded p-4 text-surface-700 transition-colors duration-150 hover:bg-surface-100"
               >
                 <i class="pi pi-file-plus mr-2" />
