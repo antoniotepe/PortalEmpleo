@@ -5,7 +5,7 @@ import Aura from '@primevue/themes/aura'
 export const AppTheme = definePreset(Aura, {
   semantic: {
     primary: {
-      50: '#727e9a',
+      50: '#e6ecfa',
       100: '#5a688a',
       200: '#425279',
       300: '#2b3d68',

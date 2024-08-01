@@ -146,7 +146,7 @@ const addNewEmail = () => {
                 v-model="profileData.cui"
                 filled
                 fluid
-                disabled="false"
+                :disabled="false"
               />
             </div>
             <div class="flex flex-col gap-2">
@@ -156,7 +156,7 @@ const addNewEmail = () => {
                 :label="$t('profile.igss')"
                 filled
                 fluid
-                disabled="false"
+                :disabled="false"
               />
             </div>
             <div class="flex flex-col gap-2">
@@ -166,7 +166,7 @@ const addNewEmail = () => {
                 :label="$t('profile.birth')"
                 filled
                 fluid
-                disabled="false"
+                :disabled="false"
               />
             </div>
           </div>
