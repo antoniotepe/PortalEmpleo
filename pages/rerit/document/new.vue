@@ -25,7 +25,7 @@ const isFileUploaded = () => {
   <div class="flex flex-col gap-4">
     <p-card>
       <template #content>
-        <span class="text-lg font-bold">
+        <span class="text-2xl font-bold">
           {{ $t('rerit.principal.sections.uploadDocuments.title') }}
         </span>
       </template>

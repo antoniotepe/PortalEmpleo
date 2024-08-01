@@ -189,7 +189,7 @@ const submitForm = () => {
   <div class="flex flex-col gap-4">
     <p-card>
       <template #content>
-        <span class="text-lg font-bold">
+        <span class="text-2xl font-bold">
           {{ $t('companies.new.title') }}
         </span>
       </template>

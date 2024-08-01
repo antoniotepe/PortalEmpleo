@@ -2,6 +2,7 @@
 import { FilterMatchMode } from '@primevue/core/api'
 import { getUsers } from '~/service/collaborators'
 
+const { t } = useI18n()
 const confirm = useConfirm()
 const toast = useToast()
 
@@ -19,29 +20,28 @@ onMounted(async () => {
     const users = await getUsers()
     person.value = users
   } catch (error) {
-    // si existe un error mandar por aqui
+    // si existe un error mandar por aquí
   } finally {
     loading.value = false
   }
 })
 
-function handleDelete(id: number) {
+function handleDelete(id: number, name: string) {
   confirm.require({
-    message: `Esta seguro que quiere eliminar al colaborador ${id}?`,
-    header: 'Confirma la operación',
+    message: `${t('collaborators.deleteCollaborator.label')}${name}?`,
+    header: `${t('ui.message.confirmOperation.label')}`,
     icon: 'pi pi-info-circle text-red-600',
-    rejectLabel: 'Cancel',
+    rejectLabel: `${t('ui.buttons.cancel.label')}`,
     rejectProps: {
       label: 'Cancel',
       severity: 'secondary',
       outlined: true,
     },
     acceptProps: {
-      label: 'Delete',
+      label: `${t('ui.buttons.delete.label')}`,
       severity: 'danger',
     },
     accept: () => {
-      //se coloca aqui para eliminar
       toast.add({
         severity: 'info',
         summary: 'Confirmado',
@@ -54,25 +54,26 @@ function handleDelete(id: number) {
 </script>
 
 <template>
-  <div class="flex flex-col gap-4 p-4">
+  <div class="flex flex-col gap-4">
     <p-card>
-      <template #title>
+      <template #content>
         <div class="flex flex-wrap items-center justify-between gap-2">
-          <span class="text-3xl font-bold text-[#142958]">
-            {{ $t('collaborators.listCollaborators') }}</span
-          >
+          <span class="text-2xl font-bold"> {{ $t('collaborators.listCollaborators') }}</span>
           <NuxtLink
             v-ripple
             to="/collaborators/profile"
             class="p"
           >
-            <i class="pi pi-file-plus mr-2 text-[#4182F9]" />
-            <span class="font-medium text-[#4182F9]">{{
-              $t('collaborators.addCollaborator')
-            }}</span>
+            <p-button
+              :label="$t('collaborators.addCollaborator')"
+              rounded
+            />
           </NuxtLink>
         </div>
       </template>
+    </p-card>
+
+    <p-card>
       <template #content>
         <p-toast />
         <p-confirm-dialog />
@@ -80,7 +81,6 @@ function handleDelete(id: number) {
           v-model:filters="filters"
           :value="person"
           data-key="id"
-          table-style="min-width: 50rem"
           paginator
           :rows="5"
           :rows-per-page-options="[5, 10]"
@@ -90,7 +90,7 @@ function handleDelete(id: number) {
           empty-message-cell="datos no existen"
         >
           <template #header>
-            <div class="my-3 flex justify-end">
+            <div class="flex justify-end">
               <p-iconField>
                 <p-inputIcon>
                   <i class="pi pi-search" />
@@ -142,7 +142,7 @@ function handleDelete(id: number) {
                 </NuxtLink>
 
                 <p-iconField>
-                  <p-input-icon @click="handleDelete(data.id)">
+                  <p-input-icon @click="handleDelete(data.id, data.name)">
                     <i class="pi pi-trash cursor-pointer text-xl hover:text-red-600" />
                   </p-input-icon>
                 </p-iconField>
