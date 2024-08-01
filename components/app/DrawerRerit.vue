@@ -1,7 +1,5 @@
 <script setup lang="ts">
-defineProps<{
-  visible: boolean
-}>()
+defineModel('visible')
 
 const emit = defineEmits(['update:visible'])
 

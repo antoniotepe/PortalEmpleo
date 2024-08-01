@@ -6,9 +6,7 @@ function logout() {
   auth.logout()
 }
 
-defineProps<{
-  visible: boolean
-}>()
+defineModel('visible')
 
 const emit = defineEmits(['update:visible'])
 
