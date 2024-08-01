@@ -142,7 +142,7 @@ const loading = ref(false)
     <p-card>
       <template #content>
         <div class="flex items-center justify-between">
-          <span class="text-lg font-bold">
+          <span class="text-2xl font-bold">
             {{ $t('rerit.principal.sections.request.label') }}
           </span>
           <p-button

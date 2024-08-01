@@ -16,6 +16,7 @@ const rowData = ref([
 
 const { t } = useI18n()
 const confirm = useConfirm()
+const toast = useToast()
 
 function handleEdit(id: number) {
   if (id && id != null) {
@@ -23,26 +24,27 @@ function handleEdit(id: number) {
   }
 }
 
-const showTemplate = (id: number, name: string) => {
+function handleDelete(name: string) {
   confirm.require({
-    group: 'templating',
-    header: `${t('branches.message.deleteBranch.label')}${name}?`,
+    message: `${t('branches.message.deleteBranch.label')}${name}?`,
+    header: `${t('ui.message.confirmOperation.label')}`,
+    icon: 'pi pi-info-circle text-red-600',
+    rejectLabel: `${t('ui.buttons.cancel.label')}`,
     rejectProps: {
-      label: t('ui.buttons.cancel.label'),
-      icon: 'pi pi-times',
+      severity: 'secondary',
       outlined: true,
-      size: 'small',
     },
     acceptProps: {
-      label: t('ui.buttons.delete.label'),
-      icon: 'pi pi-times',
-      size: 'small',
+      label: `${t('ui.buttons.delete.label')}`,
+      severity: 'danger',
     },
     accept: () => {
-      console.log('accept', id)
-    },
-    reject: () => {
-      console.log('reject')
+      toast.add({
+        severity: 'info',
+        summary: 'Confirmado',
+        detail: 'Se elimino al colaborador',
+        life: 3000,
+      })
     },
   })
 }
@@ -56,9 +58,15 @@ const filters = ref({
   <div class="flex flex-col gap-4">
     <p-card>
       <template #content>
-        <span class="text-lg font-bold">
-          {{ $t('branches.list.title') }}
-        </span>
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <span class="text-2xl font-bold">
+            {{ $t('branches.list.title') }}
+          </span>
+          <p-button
+            :label="$t('branches.message.new.label')"
+            rounded
+          />
+        </div>
       </template>
     </p-card>
 
@@ -88,8 +96,8 @@ const filters = ref({
               </p-iconField>
             </div>
           </template>
-          <template #empty> No customers found. </template>
-          <template #loading> Loading customers data. Please wait. </template>
+          <template #empty> {{ $t('branches.message.notFound.label') }} </template>
+          <template #loading> {{ $t('branches.message.loadingBranches.label') }} </template>
           <p-column header="Nombre">
             <template #body="{ data }">
               <div class="flex items-center gap-2">
@@ -105,21 +113,21 @@ const filters = ref({
             </template>
           </p-column>
 
-          <p-column>
-            <template #header>
-              <div class="flex w-full justify-center font-bold">Acciones</div>
-            </template>
+          <p-column
+            :header="$t('ui.message.actions.label')"
+            body-style="text-align:center"
+          >
             <template #body="{ data }">
-              <div class="flex justify-around">
+              <div class="flex space-x-16">
                 <p-iconField>
                   <p-inputIcon @click="handleEdit(data.id)">
-                    <i class="pi pi-pencil cursor-pointer" />
+                    <i class="pi pi-pencil cursor-pointer text-xl hover:text-[#4182F9]" />
                   </p-inputIcon>
                 </p-iconField>
 
                 <p-iconField>
-                  <p-inputIcon @click="showTemplate(data.id, data.name)">
-                    <i class="pi pi-trash cursor-pointer" />
+                  <p-inputIcon @click="handleDelete(data.name)">
+                    <i class="pi pi-trash cursor-pointer text-xl hover:text-red-600" />
                   </p-inputIcon>
                 </p-iconField>
               </div>
@@ -129,18 +137,6 @@ const filters = ref({
       </template>
     </p-card>
   </div>
-
-  <p-confirmDialog group="templating">
-    <template #message="slotProps">
-      <div
-        class="flex w-full flex-col items-center gap-4 border-b border-surface-200 dark:border-surface-700"
-      >
-        <i
-          :class="slotProps.message.icon"
-          class="!text-6xl text-primary-500"
-        ></i>
-        <p>{{ slotProps.message.message }}</p>
-      </div>
-    </template>
-  </p-confirmDialog>
+  <p-toast />
+  <p-confirm-dialog />
 </template>

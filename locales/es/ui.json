@@ -60,6 +60,12 @@
       "tradeName": {
         "label": "Nombre comercial",
         "help": "Ingrese el nombre comercial de su sucursal"
+      },
+      "actions": {
+        "label": "Acciones"
+      },
+      "confirmOperation": {
+        "label": "Confirma la operación"
       }
     }
   }

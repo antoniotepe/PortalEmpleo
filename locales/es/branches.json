@@ -6,6 +6,15 @@
     "message": {
       "deleteBranch": {
         "label": "¿Está seguro de eliminar la sucursal "
+      },
+      "notFound": {
+        "label": "No se encontraron sucursales."
+      },
+      "loadingBranches": {
+        "label": "Cargando sucursales, por favor espere."
+      },
+      "new": {
+        "label": "Añadir nueva sucursal"
       }
     },
     "new": {

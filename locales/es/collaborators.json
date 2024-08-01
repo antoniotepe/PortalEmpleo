@@ -9,6 +9,9 @@
     "loading": "Cargando datos de los colaboradores. Por favor, espere.",
     "empty": "No hay datos disponibles.",
     "register": "Ingrese los datos del colaborador",
-    "notification": "Notificaciones"
+    "notification": "Notificaciones",
+    "deleteCollaborator": {
+      "label": "¿Está seguro de eliminar el colaborador(a) "
+    }
   }
 }
