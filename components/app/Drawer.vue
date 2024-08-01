@@ -18,14 +18,14 @@ const drawer = useDrawerStore()
               severity="secondary"
               text
               rounded
-              @click="closeCallback"
+              @click="drawer.visible = false"
             />
           </span>
         </div>
 
         <div class="overflow-y-auto">
-          <AppDrawerCompany />
-          <AppDrawerRerit />
+          <AppDrawerCompany v-model:visible="drawer.visible" />
+          <AppDrawerRerit v-model:visible="drawer.visible" />
         </div>
       </div>
     </template>
