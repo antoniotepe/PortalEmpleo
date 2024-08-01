@@ -1,3 +1,11 @@
+<script setup lang="ts">
+const auth = useAuthStore()
+
+function logout() {
+  auth.logout()
+}
+</script>
+
 <template>
   <ul class="m-0 list-none p-4">
     <li>
@@ -86,6 +94,13 @@
             </li>
           </ul>
         </li>
+      </ul>
+      <ul
+        class="flex cursor-pointer items-center p-4 py-4 transition-colors duration-150 hover:bg-surface-100"
+        @click="logout"
+      >
+        <i class="pi pi-sign-out mr-2" />
+        <span class="p-ripple flex cursor-pointer items-center font-medium">Cerrar sesión</span>
       </ul>
     </li>
   </ul>
