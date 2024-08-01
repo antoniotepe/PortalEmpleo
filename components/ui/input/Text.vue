@@ -4,6 +4,7 @@ type Props = {
   label: string
   placeholder?: string
   help?: string
+  type?: string
   required?: boolean
   disabled?: boolean
 }
@@ -23,6 +24,7 @@ const props = defineProps<Props>()
       v-model="model"
       :placeholder="placeholder"
       variant="filled"
+      :type="props.type"
       fluid
       :disabled="props.disabled"
       :required="props.required"

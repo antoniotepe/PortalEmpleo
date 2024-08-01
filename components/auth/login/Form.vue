@@ -44,19 +44,14 @@ async function login() {
       <form @submit.prevent="login">
         <!-- TODO(Mynor): Use UiInput -->
         <div class="mb-5">
-          <label
-            for="email"
-            class="block text-sm font-medium text-black"
-          >
-            {{ $t('login.loginText') }}
-          </label>
-          <p-input-text
-            id="email"
+          <UiInputText
+            id="igss"
             v-model="form.username"
-            type="email"
-            class="input mt-1 block w-full bg-white text-black"
+            :label="$t('login.emailText')"
+            filled
+            fluid
+            :required="true"
             :placeholder="$t('login.phEmail')"
-            required
           />
         </div>
 
