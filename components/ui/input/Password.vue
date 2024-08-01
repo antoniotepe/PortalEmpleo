@@ -7,7 +7,12 @@ type Props = {
   type?: string
   required?: boolean
   disabled?: boolean
+  feedback?: boolean
   invalid?: boolean
+  promptLabel?: string
+  weakLabel?: string
+  mediumLabel?: string
+  strongLabel?: string
 }
 
 const model = defineModel<string>({ required: true })
@@ -20,16 +25,22 @@ const props = defineProps<Props>()
       {{ props.label }}
     </label>
 
-    <p-input-text
+    <p-password
       :id="props.id"
       v-model="model"
-      :placeholder="placeholder"
       variant="filled"
-      :type="props.type"
       fluid
+      toggle-mask
       :invalid="props.invalid"
+      :placeholder="placeholder"
+      :feedback="props.feedback"
+      :type="props.type"
       :disabled="props.disabled"
       :required="props.required"
+      :prompt-label="props.promptLabel"
+      :weak-label="props.weakLabel"
+      :medium-label="props.mediumLabel"
+      :strong-label="props.strongLabel"
       :aria-describedby="props.help ? `${$props.id}-help` : undefined"
     />
 

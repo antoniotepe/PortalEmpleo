@@ -18,8 +18,8 @@ const submitForm = () => {
 
 <template>
   <div class="flex w-full flex-col items-center justify-start">
-    <div class="w-full max-w-xl rounded-xl bg-white p-5 md:text-2xl">
-      <h1 class="mb-6 text-left text-3xl font-bold text-[#142958] md:text-5xl">
+    <div class="w-full max-w-xl rounded-xl bg-white p-5">
+      <h1 class="mb-6 text-left text-2xl font-bold text-primary">
         {{ $t('forgotPasswordPage.title') }}
       </h1>
       <h4 class="text-secondary mb-6 text-left text-base font-light opacity-60">
@@ -28,19 +28,15 @@ const submitForm = () => {
 
       <form @submit.prevent="submitForm">
         <div class="mb-5">
-          <label
-            for="email"
-            class="text-secondary block text-sm font-medium"
-          >
-            {{ $t('forgotPasswordPage.emailText') }}
-          </label>
-          <p-input-text
+          <UiInputText
             id="email"
             v-model="form.email"
+            :label="$t('forgotPasswordPage.emailText')"
+            filled
+            fluid
             type="email"
-            class="input text-secondary mt-1 block w-full bg-white"
+            :required="true"
             :placeholder="$t('forgotPasswordPage.phEmail')"
-            required
           />
         </div>
 
@@ -48,13 +44,13 @@ const submitForm = () => {
           <div class="mt-8 flex justify-start space-x-4">
             <p-button
               rounded
-              class="text-secondary bg-[#142958]"
+              class="text-secondary bg-primary"
               type="submit"
               :label="$t('forgotPasswordPage.next')"
             />
             <NuxtLink
               to="/auth/login"
-              class="p-button p-button-[#142958] p-button-rounded !bg-[var(--color-secondary)] !text-[var(--color-black)]"
+              class="p-button p-button-rounded p-button-secondary p-button-text border-primary"
             >
               {{ $t('forgotPasswordPage.backTo') }}
             </NuxtLink>

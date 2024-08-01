@@ -79,7 +79,7 @@ const addNewEmail = () => {
           <div v-if="profileView">
             <p-button
               icon="pi pi-pencil"
-              class="redondeado-lg border-0 bg-[#142958]"
+              class="redondeado-lg border-0 bg-primary"
               :label="$t('ui.buttons.return.label')"
               @click="profileView = !profileView"
             />
@@ -90,7 +90,7 @@ const addNewEmail = () => {
           >
             <p-button
               icon="pi pi-pencil"
-              class="redondeado-lg border-0 bg-[#142958]"
+              class="redondeado-lg border-0 bg-primary"
               :label="isEditing ? $t('ui.buttons.save.label') : $t('ui.buttons.edit.label')"
               @click="toggleEdit"
             />
@@ -135,7 +135,7 @@ const addNewEmail = () => {
               </div>
               <p-button
                 icon="pi pi-plus"
-                class="text-secondary redondeado-lg border-0 bg-[#142958]"
+                class="text-secondary redondeado-lg border-0 bg-primary"
                 type="submit"
                 :label="$t('ui.buttons.AddNewMail.label')"
               />

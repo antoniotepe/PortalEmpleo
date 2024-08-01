@@ -7,14 +7,12 @@ interface FormData {
   username: string
   password: string
   remember: boolean
-  showPassword: boolean
 }
 
 const form = reactive<FormData>({
   username: '',
   password: '',
   remember: false,
-  showPassword: false,
 })
 
 async function login() {
@@ -33,8 +31,8 @@ async function login() {
 
 <template>
   <div class="flex w-full flex-col items-center justify-start">
-    <div class="w-full max-w-xl rounded-xl bg-white p-5 md:text-2xl">
-      <h1 class="mb-6 text-left text-3xl font-bold text-[#142958] md:text-5xl">
+    <div class="w-full max-w-xl rounded-xl bg-white p-5">
+      <h1 class="mb-6 text-left text-2xl font-bold text-primary">
         {{ $t('login.welcome') }}
       </h1>
       <h4 class="mb-6 text-left text-base font-light text-black opacity-60">
@@ -42,7 +40,6 @@ async function login() {
       </h4>
 
       <form @submit.prevent="login">
-        <!-- TODO(Mynor): Use UiInput -->
         <div class="mb-5">
           <UiInputText
             id="igss"
@@ -50,31 +47,22 @@ async function login() {
             :label="$t('login.emailText')"
             filled
             fluid
+            type="email"
             :required="true"
             :placeholder="$t('login.phEmail')"
           />
         </div>
 
-        <!-- TODO(Mynor): Use UiInput -->
         <div class="mb-5">
-          <label
-            for="confirmPassword"
-            class="block text-sm font-medium text-black"
-            >{{ $t('register.confirmPassword') }}</label
-          >
-          <div class="relative mt-1 items-center">
-            <p-password
-              v-model="form.password"
-              toggle-mask
-              fluid
-              :feedback="false"
-              :placeholder="$t('register.phPassword')"
-              :prompt-label="$t('register.phPassword')"
-              :weak-label="$t('register.weakLabel')"
-              :medium-label="$t('register.mediumLabel')"
-              :strong-label="$t('register.strongLabel')"
-            />
-          </div>
+          <UiInputPassword
+            id="password"
+            v-model="form.password"
+            :label="$t('login.passwordText')"
+            filled
+            fluid
+            :required="true"
+            :placeholder="$t('login.phPassword')"
+          />
         </div>
 
         <div class="mb-4">
@@ -93,23 +81,25 @@ async function login() {
                 {{ $t('login.rememberMe') }}
               </label>
             </div>
+
             <NuxtLink
               to="/auth/password/forgot"
               class="text-lg"
-              >{{ $t('login.forgotPassword') }}</NuxtLink
             >
+              {{ $t('login.forgotPassword') }}
+            </NuxtLink>
           </div>
 
           <div class="mt-8 flex justify-start space-x-4">
             <p-button
               rounded
-              class="bg-[#142958] px-5 text-white"
               type="submit"
               :label="$t('login.btnAccess')"
             />
+
             <NuxtLink
               to="/auth/register"
-              class="p-button p-button-rounded !bg-[var(--color-white)] text-black"
+              class="p-button p-button-rounded p-button-secondary p-button-text border-primary text-primary"
             >
               {{ $t('login.btnRegister') }}
             </NuxtLink>

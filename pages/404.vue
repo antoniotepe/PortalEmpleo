@@ -14,7 +14,7 @@ definePageMeta({
     </div>
     <div class="flex flex-grow flex-col items-center justify-center">
       <div class="flex flex-row items-center gap-3 text-6xl">
-        <h1 class="font-bold text-[#142958]">{{ $t('pageErrors.title404') }}</h1>
+        <h1 class="font-bold text-primary">{{ $t('pageErrors.title404') }}</h1>
         <i class="pi pi-search ml-4 text-5xl"></i>
       </div>
       <div class="my-10 h-auto text-center text-3xl opacity-60">
@@ -23,7 +23,7 @@ definePageMeta({
       <div>
         <NuxtLink
           to="/"
-          class="rounded-full border bg-[#142958] px-4 py-2 text-xl font-medium text-white"
+          class="rounded-full border bg-primary px-4 py-2 text-xl font-medium text-white"
         >
           {{ $t('pageErrors.btnReturnHome') }}
         </NuxtLink>

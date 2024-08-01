@@ -77,12 +77,12 @@ async function register() {
 
       success.value = true
       setTimeout(() => {
-        router.push('/login')
+        router.push('/auth/login')
       }, 3000)
     } catch (error) {
       if (error.data.statusCode === 400) {
         const serverErrors = error.data.message.split(', ').map((msg) => msg.trim())
-        errors.regist.push(...serverErrors)
+        errors.registerPassword.push(...serverErrors)
       } else if (error.response._data.statusCode === 422) {
         errors.register = true
       } else {
@@ -95,10 +95,8 @@ async function register() {
 
 <template>
   <div class="flex w-full flex-col items-center justify-start">
-    <div class="w-full max-w-xl rounded-xl bg-white p-5 md:text-2xl">
-      <h1 class="mb-5 text-left text-3xl font-bold text-[#142958]">
-        {{ $t('register.title') }}
-      </h1>
+    <div class="w-full max-w-xl rounded-xl bg-white p-5">
+      <h1 class="mb-5 text-left text-2xl font-bold text-primary">{{ $t('register.title') }}</h1>
       <h4 class="mb-6 text-left text-base font-light text-black opacity-60">
         {{ $t('register.subtitle') }}
       </h4>
@@ -108,64 +106,53 @@ async function register() {
         @submit.prevent="register"
       >
         <div class="mb-5">
-          <label
-            for="email"
-            class="block text-sm font-medium text-black"
-          >
-            {{ $t('register.emailText') }}
-          </label>
-          <p-input-text
-            id="email"
+          <UiInputText
+            id="igss"
             v-model="form.username"
+            :label="$t('register.emailText')"
+            filled
+            fluid
             type="email"
-            class="input mt-1 block w-full bg-white text-black"
-            :placeholder="$t('register.phEmail')"
+            :required="true"
             :invalid="errors.email"
-            required
+            :placeholder="$t('register.phEmail')"
           />
         </div>
 
         <div class="flex space-x-5">
           <div class="w-1/2">
-            <label
-              for="password"
-              class="block text-sm font-medium text-black"
-              >{{ $t('register.password') }}</label
-            >
-
-            <div class="relative mt-1 items-center">
-              <p-password
-                v-model="form.password"
-                toggle-mask
-                fluid
-                :placeholder="$t('register.phPassword')"
-                :invalid="errors.password"
-                :prompt-label="$t('register.phPassword')"
-                :weak-label="$t('register.weakLabel')"
-                :medium-label="$t('register.mediumLabel')"
-                :strong-label="$t('register.strongLabel')"
-              />
-            </div>
+            <UiInputPassword
+              id="password"
+              v-model="form.password"
+              :label="$t('register.password')"
+              filled
+              fluid
+              :required="true"
+              toggle-mask
+              :placeholder="$t('register.phPassword')"
+              :invalid="errors.password"
+              :prompt-label="$t('register.phPassword')"
+              :weak-label="$t('register.weakLabel')"
+              :medium-label="$t('register.mediumLabel')"
+              :strong-label="$t('register.strongLabel')"
+            />
           </div>
           <div class="w-1/2">
-            <label
-              for="confirmPassword"
-              class="block text-sm font-medium text-black"
-              >{{ $t('register.confirmPassword') }}</label
-            >
-            <div class="relative mt-1 items-center">
-              <p-password
-                v-model="form.confirmPassword"
-                toggle-mask
-                fluid
-                :placeholder="$t('register.phPassword')"
-                :invalid="errors.password"
-                :prompt-label="$t('register.phPassword')"
-                :weak-label="$t('register.weakLabel')"
-                :medium-label="$t('register.mediumLabel')"
-                :strong-label="$t('register.strongLabel')"
-              />
-            </div>
+            <UiInputPassword
+              id="confirmPassword"
+              v-model="form.confirmPassword"
+              :label="$t('register.confirmPassword')"
+              filled
+              fluid
+              :required="true"
+              toggle-mask
+              :placeholder="$t('register.phPassword')"
+              :invalid="errors.password"
+              :prompt-label="$t('register.phPassword')"
+              :weak-label="$t('register.weakLabel')"
+              :medium-label="$t('register.mediumLabel')"
+              :strong-label="$t('register.strongLabel')"
+            />
           </div>
         </div>
 
@@ -173,7 +160,7 @@ async function register() {
           <p-button
             :label="$t('register.register')"
             text
-            class="bg-[#142958] px-5 text-white"
+            class="bg-primary px-5 text-white"
             rounded
             type="submit"
           />

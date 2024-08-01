@@ -58,7 +58,7 @@ function handleDelete(id: number) {
     <p-card>
       <template #title>
         <div class="flex flex-wrap items-center justify-between gap-2">
-          <span class="text-3xl font-bold text-[#142958]">
+          <span class="text-3xl font-bold text-primary">
             {{ $t('collaborators.listCollaborators') }}</span
           >
           <NuxtLink
