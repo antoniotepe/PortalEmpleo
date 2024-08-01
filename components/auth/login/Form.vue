@@ -98,23 +98,25 @@ async function login() {
                 {{ $t('login.rememberMe') }}
               </label>
             </div>
+
             <NuxtLink
               to="/auth/password/forgot"
               class="text-lg"
-              >{{ $t('login.forgotPassword') }}</NuxtLink
             >
+              {{ $t('login.forgotPassword') }}
+            </NuxtLink>
           </div>
 
           <div class="mt-8 flex justify-start space-x-4">
             <p-button
               rounded
-              class="bg-[#142958] px-5 text-white"
               type="submit"
               :label="$t('login.btnAccess')"
             />
+
             <NuxtLink
               to="/auth/register"
-              class="p-button p-button-rounded !bg-[var(--color-white)] text-black"
+              class="p-button p-button-rounded p-button-secondary p-button-text border-primary text-primary"
             >
               {{ $t('login.btnRegister') }}
             </NuxtLink>
