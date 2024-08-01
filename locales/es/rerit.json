@@ -1,0 +1,32 @@
+{
+  "rerit": {
+    "principal": {
+      "title": "Registro Electrónico de Reglamentos Interiores de Trabajo",
+      "sections": {
+        "observations": {
+          "title": "Observaciones",
+          "label1": "Son nulos ipso jure y no obligan a las partes, todos los actos o estipulaciones que impliquen renuncia, disminución o tergiversación de los derechos que otorgan la Constitución Política de la República, el Código de Trabajo, disposiciones de trabajo, previsión y seguridad social.",
+          "label2": "El empleador es responsable de la autenticidad y veracidad de la firma puesta en el Reglamento Interior de trabajo de conformidad con las normativas aplicables a la materia.",
+          "label3": "Al estar aprobado por la Inspección General de Trabajo el Reglamento Interior de Trabajo el empleador está obligado a imprimirlo en caracteres fácilmente legibles y de tenerlo constantemente colocado, por lo menos en dos (2) de los sitios más visibles del lugar de trabajo o, en su defecto ha de suministrarse impreso en un folleto a todos los trabajadores de la entidad que se trate."
+        },
+        "instructions": {
+          "title": "Instrucciones",
+          "label1": "El empleador es responsable de autenticidad, veracidad y vigencia de los documentos adjuntos a la plataforma electrónica -RERIT.",
+          "label2": "Para iniciar el procedimiento de aprobación de Reglamentos Interiores de Trabajo a través de la plataforma electrónica -RERIT- DESCARGUE AQUÍ ó AQUÍ (en el caso de empresas de seguridad privada) el modelo; una vez haya sido descargado, este deberá ser adecuado a la naturaleza jurídica de su empresa o entidad, el Reglamento Interior de Trabajo deberá ser enviado en formato PDF y formado por el propietario o representante legal en su última página a través de firma electrónica avanzada o firma manuscrita, identificando la calidad con la que actúe el firmante.",
+          "label3": "En los casos de MODIFICACIONES a los Reglamentos Interiores de Trabajo, el empleador deberá adjuntar en los apartados correspondientes el Reglamento Interior de Trabajo aprobado por el Ministerio de Trabajo y Previsión Social y la modificación del mismo, ambos en archivo PDF debidamente firmado por el propietario o representante legal en su última página a través de firma electrónica avanzada o firma manuscrita, identificando la calidad con la que actúe el firmante. ",
+          "label4": "Si se tratare de modificaciones alas jornadas laborales, pagos de bonificación o vulnerabilidad a los derechos previamente adquiridos por los trabajadores, se deberá adjuntar ACTA NOTARIAL DE DECLARACIÓN JURADA firmada por el propietario o representante legal, donde se haga constar la aceptación de la totalidad de los trabajadores, o en su caso por sus representantes en caso de contar con sindicato o grupo coaligado afectados por las modificaciones y/o cambio condiciones de trabajo. "
+        },
+        "uploadDocuments": {
+          "title": "Carga de Reglamento Interior de Trabajo",
+          "type": "Tipo de Reglamento Interior de Trabajo",
+          "new": "Nuevo",
+          "modification": "Modificación"
+        },
+        "request": {
+          "label": "Solicitudes Realizadas",
+          "new": "Crear nueva solicitud"
+        }
+      }
+    }
+  }
+}

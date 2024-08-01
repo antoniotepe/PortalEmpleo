@@ -25,6 +25,7 @@ const drawer = useDrawerStore()
 
         <div class="overflow-y-auto">
           <AppDrawerCompany />
+          <AppDrawerRerit />
         </div>
       </div>
     </template>
