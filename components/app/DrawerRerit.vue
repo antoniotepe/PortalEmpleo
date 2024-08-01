@@ -1,10 +1,7 @@
 <script setup lang="ts">
-defineModel('visible')
-
-const emit = defineEmits(['update:visible'])
-
-const closeDrawer = () => {
-  emit('update:visible', false)
+const visible = defineModel('visible')
+function closeDrawer() {
+  visible.value = false
 }
 </script>
 <template>
