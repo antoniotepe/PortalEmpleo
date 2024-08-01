@@ -53,10 +53,14 @@ export const useAuthStore = defineStore({
 
     logout() {
       const init = initialState()
-
       this.access = init.access
       this.refresh = init.refresh
       this.user = init.user
+
+      localStorage.removeItem('access')
+      localStorage.removeItem('refresh')
+
+      navigateTo('/auth/login')
     },
   },
 })

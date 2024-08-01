@@ -99,7 +99,7 @@ async function login() {
               </label>
             </div>
             <NuxtLink
-              to="/forgotPassword"
+              to="/auth/password/forgot"
               class="text-lg"
               >{{ $t('login.forgotPassword') }}</NuxtLink
             >

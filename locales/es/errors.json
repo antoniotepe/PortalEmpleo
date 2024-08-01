@@ -1,5 +1,13 @@
 {
   "errors": {
     "server": "Error en el servidor, intente mas tarde."
+  },
+  "pageErrors": {
+    "title404": "Error 404",
+    "subtitle404": "Parece que no hemos encontrado el sitio que buscas.",
+    "title401": "Error 401",
+    "subtitle401": "No estás autenticado",
+    "text401": "Debes ingresar para ver este sitio",
+    "btnReturnHome": "Regresar al inicio"
   }
 }
