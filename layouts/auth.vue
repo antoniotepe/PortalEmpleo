@@ -35,7 +35,7 @@
           />
         </div>
 
-        <div class="flex h-[25vh] flex-col items-center justify-center bg-[#142958]">
+        <div class="flex h-[25vh] flex-col items-center justify-center bg-primary">
           <div class="flex flex-grow flex-col items-center justify-center">
             <h2 class="mb-6 text-xl font-bold text-white md:text-2xl lg:text-3xl">
               {{ $t('login.social') }}

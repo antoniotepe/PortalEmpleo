@@ -49,13 +49,13 @@ const save = () => {
       <p-card>
         <template #title>
           <div class="my-5 flex items-center justify-between font-normal">
-            <div class="flex gap-2 text-3xl font-bold text-[#142958]">
+            <div class="flex gap-2 text-3xl font-bold text-primary">
               {{ $t('collaborators.register') }}
             </div>
             <div>
               <p-button
                 icon="pi pi-pencil"
-                class="redondeado-lg border-0 bg-[#142958]"
+                class="redondeado-lg border-0 bg-primary"
                 :label="$t('ui.buttons.save.label')"
                 type="submit"
               />

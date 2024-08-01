@@ -7,14 +7,12 @@ interface FormData {
   username: string
   password: string
   remember: boolean
-  showPassword: boolean
 }
 
 const form = reactive<FormData>({
   username: '',
   password: '',
   remember: false,
-  showPassword: false,
 })
 
 async function login() {
@@ -33,8 +31,8 @@ async function login() {
 
 <template>
   <div class="flex w-full flex-col items-center justify-start">
-    <div class="w-full max-w-xl rounded-xl bg-white p-5 md:text-2xl">
-      <h1 class="mb-6 text-left text-3xl font-bold text-[#142958] md:text-5xl">
+    <div class="w-full max-w-xl rounded-xl bg-white p-5">
+      <h1 class="mb-6 text-left text-2xl font-bold text-primary">
         {{ $t('login.welcome') }}
       </h1>
       <h4 class="mb-6 text-left text-base font-light text-black opacity-60">
@@ -42,44 +40,29 @@ async function login() {
       </h4>
 
       <form @submit.prevent="login">
-        <!-- TODO(Mynor): Use UiInput -->
         <div class="mb-5">
-          <label
-            for="email"
-            class="block text-sm font-medium text-black"
-          >
-            {{ $t('login.loginText') }}
-          </label>
-          <p-input-text
-            id="email"
+          <UiInputText
+            id="igss"
             v-model="form.username"
+            :label="$t('login.emailText')"
+            filled
+            fluid
             type="email"
-            class="input mt-1 block w-full bg-white text-black"
+            :required="true"
             :placeholder="$t('login.phEmail')"
-            required
           />
         </div>
 
-        <!-- TODO(Mynor): Use UiInput -->
         <div class="mb-5">
-          <label
-            for="confirmPassword"
-            class="block text-sm font-medium text-black"
-            >{{ $t('register.confirmPassword') }}</label
-          >
-          <div class="relative mt-1 items-center">
-            <p-password
-              v-model="form.password"
-              toggle-mask
-              fluid
-              :feedback="false"
-              :placeholder="$t('register.phPassword')"
-              :prompt-label="$t('register.phPassword')"
-              :weak-label="$t('register.weakLabel')"
-              :medium-label="$t('register.mediumLabel')"
-              :strong-label="$t('register.strongLabel')"
-            />
-          </div>
+          <UiInputPassword
+            id="password"
+            v-model="form.password"
+            :label="$t('login.passwordText')"
+            filled
+            fluid
+            :required="true"
+            :placeholder="$t('login.phPassword')"
+          />
         </div>
 
         <div class="mb-4">
