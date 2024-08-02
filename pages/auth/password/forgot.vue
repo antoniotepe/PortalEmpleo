@@ -1,7 +1,6 @@
 <script setup lang="ts">
-definePageMeta({
-  layout: 'auth',
-})
+definePageMeta({ layout: 'auth' })
+
 const email = ref('')
 const showNewPassword = ref(false)
 
