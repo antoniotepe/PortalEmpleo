@@ -15,7 +15,7 @@ const model = defineModel<T>()
 </script>
 
 <template>
-  <div class="ui-input-binary">
+  <div class="ui-input-radio">
     <label class="mb-2 block">
       {{ props.title }}
     </label>
