@@ -31,7 +31,3 @@ definePageMeta({
     </div>
   </div>
 </template>
-
-<style scoped>
-/* Puedes agregar más estilos aquí si es necesario */
-</style>
