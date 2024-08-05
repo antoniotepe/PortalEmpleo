@@ -30,8 +30,8 @@ export default defineEventHandler(async (event) => {
       body: {
         nit: result.data.nit,
         razon_social: result.data.name,
-        nombre_comercial: result.data.nombre_comercial,
-        id_tipo_empresa: result.data.id_tipo_empresa,
+        nombre_comercial: result.data.comercialName,
+        id_tipo_empresa: result.data.companyType,
         id_tipo_entidad: result.data.id_tipo_entidad,
         id_industrias: result.data.id_industrias,
         id_actividad_economica: result.data.id_actividad_economica,
@@ -46,7 +46,7 @@ export default defineEventHandler(async (event) => {
       {
         method: 'POST',
         body: {
-          id_empresa: result.data.id_tipo_empresa,
+          id_empresa: result.data.companyType,
           id_sucursal: result.data.id_sucursal,
           id_representante_legal: result.data.id_representante_legal,
           id_tipo_registro_patente: result.data.id_tipo_registro_patente,

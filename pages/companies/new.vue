@@ -188,8 +188,9 @@ async function submitForm() {
       headers: {
         Accept: 'application/json',
       },
-      body: {...form.value,
-        form.companyType.value: form.companyType.value
+      body: {
+        ...form.value,
+        /* form.companyType.value: form.companyType.value */
       },
     })
 
