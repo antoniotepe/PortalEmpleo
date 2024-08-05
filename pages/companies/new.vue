@@ -1,19 +1,23 @@
 <script lang="ts" setup>
+interface SelectTypes {
+  value: number
+  label: string
+}
 const form = ref({
   foreign: false,
   nit: 0,
   name: '',
   comercialName: '',
-  companyType: '',
-  entityType: '',
-  industry: '',
-  activity: '',
+  companyType: {} as SelectTypes,
+  entityType: {} as SelectTypes,
+  industry: {} as SelectTypes,
+  activity: {} as SelectTypes,
   juridical: false,
   guild: '',
   operationYear: null,
   igss: false,
   affiliationNumber: 0,
-  patentType: '',
+  patentType: {} as SelectTypes,
   registerNumber: 0,
   invoiceNumber: 0,
   book: 0,
@@ -56,6 +60,7 @@ const industry = ref<Item[]>([])
 const economicActivity = ref<Item[]>([])
 const guild = ref<Item[]>([])
 const patentTypes = ref<Item[]>([])
+const success = ref(false)
 
 onBeforeMount(async () => {
   try {
@@ -175,12 +180,22 @@ const deleteContact = () => {
   }
 }
 
-const submitForm = () => {
-  console.log(form.value)
-  if (isFileUploaded()) {
-    console.log('Archivo listo para subir:', form.value.FileUpload)
-  } else {
-    alert('Por favor, seleccione un archivo antes de enviar el formulario.')
+async function submitForm() {
+  console.log('datos', form.value)
+  try {
+    await $fetch('/api/companies/new', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+      },
+      body: {...form.value,
+        form.companyType.value: form.companyType.value
+      },
+    })
+
+    success.value = true
+  } catch (error) {
+    console.log(error)
   }
 }
 </script>
@@ -239,7 +254,6 @@ const submitForm = () => {
                 <div v-if="!form.foreign"></div>
 
                 <UiInputText
-                  v-if="!form.name"
                   id="company-name"
                   v-model="form.name"
                   :label="$t('companies.new.inputs.name.label')"
@@ -248,7 +262,6 @@ const submitForm = () => {
                 />
 
                 <UiInputText
-                  v-if="!form.comercialName"
                   id="comercial-name"
                   v-model="form.comercialName"
                   :label="$t('companies.new.inputs.comercialName.label')"
@@ -266,7 +279,7 @@ const submitForm = () => {
                 />
 
                 <UiInputSelect
-                  id="company-type"
+                  id="entityType"
                   v-model="form.entityType"
                   :label="$t('companies.new.inputs.entityType.label')"
                   :items="entityType"
