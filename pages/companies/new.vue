@@ -13,15 +13,15 @@ const form = ref({
   industry: {} as SelectTypes,
   activity: {} as SelectTypes,
   juridical: false,
-  guild: '',
-  operationYear: null,
+  guild: {} as SelectTypes,
+  operationYear: undefined,
   igss: false,
   affiliationNumber: 0,
   patentType: {} as SelectTypes,
   registerNumber: 0,
   invoiceNumber: 0,
   book: 0,
-  registerDate: null,
+  registerDate: undefined,
   FileUpload: null as File | null,
   direction: '',
   notificationsDirection: '',
@@ -181,16 +181,41 @@ const deleteContact = () => {
 }
 
 async function submitForm() {
-  console.log('datos', form.value)
+  const formData = { ...form.value }
+  const FormContacts = formData.contactSections.forEach((contact, index) => {
+    console.log(`Contacto ${index + 1}:`)
+    console.log('Nombre:', contact.contactName)
+    console.log('Posición:', contact.contactPosition)
+    console.log('Email:', contact.contactEmail)
+    console.log('Teléfono 1:', contact.contactPhone)
+    console.log('Teléfono 2:', contact.contactPhoneTwo)
+  })
+  console.log('datos', formData.companyType.value)
+  console.log(
+    'datos nuevos',
+    FormContacts
+
+    // formData.contactSections[2].contactPhone,
+    // formData.contactSections[3].contactPhoneTwo
+  )
   try {
+    const formData = { ...form.value }
+
     await $fetch('/api/companies/new', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
       },
       body: {
-        ...form.value,
-        /* form.companyType.value: form.companyType.value */
+        ...formData,
+        companyType_id: formData.companyType?.value,
+        entityType_id: formData.entityType?.value,
+        industry_id: formData.industry?.value,
+        activity_id: formData.activity?.value,
+        guild_id: formData.guild?.value,
+        patentType_id: formData.patentType?.value,
+        // registerDate: new Date(formData.registerDate),
+        operationYear: new Date(formData.operationYear).getFullYear(),
       },
     })
 

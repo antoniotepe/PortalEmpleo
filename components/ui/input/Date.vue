@@ -4,17 +4,12 @@ type Props = {
   label: string
   placeholder?: string
   help?: string
-  modelValue?: Date | null
   view?: string
   dateFormat?: string
 }
 
 const props = defineProps<Props>()
-const model = ref<Date | null>(props.modelValue ?? null)
-
-const handleDateSelect = (date: Date) => {
-  model.value = date
-}
+const model = defineModel<Date>({ required: false })
 </script>
 
 <template>
@@ -32,7 +27,6 @@ const handleDateSelect = (date: Date) => {
       variant="filled"
       fluid
       :aria-describedby="props.help ? `${props.id}-help` : undefined"
-      @date-select="handleDateSelect"
     />
 
     <small
